@@ -1,15 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {FlowProvider, useFlow} from './Flow'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const Screen1 = () => {
+  const {actions} = useFlow()
+  return <div>
+    Screen 1
+    <button onClick={() => actions.nextScreen(2)}>Next</button>
+  </div>
+}
+const Screen2 = () => <div>Screen 2</div>
+const Screen3 = () => <div>Screen 3</div>
+
 root.render(
   <React.StrictMode>
-    <App />
+    <FlowProvider initialState={{
+      sanityString: 'test',
+      screens: [
+        Screen1,
+        Screen2,
+        Screen3,
+      ],
+      currenScreenIndex: 0,
+    }}>
+
+      <App />
+    </FlowProvider>
   </React.StrictMode>
 );
 
