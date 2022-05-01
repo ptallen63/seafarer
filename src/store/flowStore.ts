@@ -51,6 +51,7 @@ export enum ActionTypes {
 // Action Interfaces: Should be included in Action type in 'types/Actions'
 export type InitFlow = {
     type: ActionTypes.INIT_FLOW;
+    config: FlowState
 };
 
 export type NextScreen ={
@@ -76,7 +77,7 @@ export type Submit = {
 
 // Actions to be exposed on useFlow(), should be included in 'types/State'
 export type FlowActions = {
-    initFlow: () => void;
+    initFlow: (config: FlowState) => void;
     nextScreen: (index?: number) => void;
     previousScreen: () => void;
     saveAndContinue: (data: FlowData) => void;
@@ -95,8 +96,8 @@ const screenIndexIsValid = (index: number,screens: Screen[]) => {
  */
 export function actions({ dispatch, state }: ActionsParams): FlowActions {
     return {
-        initFlow() {
-            dispatch({ type: ActionTypes.INIT_FLOW });
+        initFlow(config) {
+            dispatch({ type: ActionTypes.INIT_FLOW, config });
         },
         nextScreen(index){
             let nextIndex = state.currenScreenIndex + 1;
@@ -113,6 +114,9 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
                 console.error('invalid index')
             }
 
+            // Fire a lifecyle function if it is present
+            if (state.onNext) state.onNext(state.data, state)
+
         },
         previousScreen(){
             let prevIndex = state.currenScreenIndex - 1;
@@ -123,6 +127,9 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
                 // TODO set up error dispatching
                 console.error('invalid index')
             }
+
+            // Fire a lifecyle function if it is present
+            if (state.onPrev) state.onPrev(state.data, state)
         },
         saveAndContinue(data){
             dispatch({type: ActionTypes.SAVE_AND_CONTINUE, data})
