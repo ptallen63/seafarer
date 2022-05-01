@@ -12,7 +12,11 @@ const Screen1 = () => {
   const {actions} = useFlow()
   return <div>
     Screen 1
-    <button onClick={() => actions.nextScreen(2)}>Next</button>
+    <button onClick={() => {
+      actions.saveAndContinue({ foo: 'bar'});
+      actions.nextScreen(2);
+      return
+    }}>Next</button>
   </div>
 }
 const Screen2 = () => <div>Screen 2</div>
@@ -21,6 +25,9 @@ const Screen3 = () => <div>Screen 3</div>
 root.render(
   <React.StrictMode>
     <FlowProvider initialState={{
+      data: {
+        bar: 'baz',
+      },
       sanityString: 'test',
       screens: [
         Screen1,
@@ -38,4 +45,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(console.log);

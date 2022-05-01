@@ -5,7 +5,7 @@ import {
     SanityActions
 } from '../src/store/sanityStore';
 
-import {FlowActions, InitFlow, NextScreen} from '../src/store/flowStore';
+import {FlowActions, InitFlow, NextScreen, SaveAndContinue} from '../src/store/flowStore';
 
 
 
@@ -20,5 +20,6 @@ export type Action =
     // Flow Actions
     | InitFlow
     | NextScreen
+    | SaveAndContinue
 
 export type Actions = & SanityActions & FlowActions;
