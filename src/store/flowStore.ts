@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-shadow */
 import { FC } from 'react';
-import { Action, ActionsParams } from '../../types/Actions';
+import { Action, ActionsParams, Actions } from '../../types/Actions';
 import { State } from '../../types/State';
 
 /**
@@ -23,6 +23,7 @@ export type FlowState = {
     screens: Screen[];
     currenScreenIndex: number;
     data: FlowData
+    onSubmit?: (data?: FlowData, state?: State) => void
 };
 
 export const defaultState: FlowState = {
@@ -41,6 +42,7 @@ export enum ActionTypes {
     INIT_FLOW = 'INIT_FLOW',
     NEXT_SCREEN = 'NEXT_SCREEN',
     SAVE_AND_CONTINUE = 'SAVE_AND_CONTINUE',
+    SUBMIT = 'SUBMIT',
 }
 
 // Action Interfaces: Should be included in Action type in 'types/Actions'
@@ -59,12 +61,17 @@ export type SaveAndContinue = {
     data: FlowData;
 }
 
+export type Submit = {
+    type: ActionTypes.SUBMIT;
+}
+
 
 // Actions to be exposed on useFlow(), should be included in 'types/State'
 export type FlowActions = {
     initFlow: () => void;
     nextScreen: (index?: number) => void;
     saveAndContinue: (data: FlowData) => void;
+    submit: () => void;
 };
 
 /**
@@ -83,6 +90,12 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
         },
         saveAndContinue(data){
             dispatch({type: ActionTypes.SAVE_AND_CONTINUE, data})
+        },
+        submit(){
+            dispatch({type: ActionTypes.SUBMIT});
+            if (state?.onSubmit){
+                state.onSubmit(state.data, state)
+            }
         }
     };
 }

@@ -15,6 +15,7 @@ const Screen1 = () => {
     <button onClick={() => {
       actions.saveAndContinue({ foo: 'bar'});
       actions.nextScreen(2);
+      actions.submit();
       return
     }}>Next</button>
   </div>
@@ -36,6 +37,9 @@ root.render(
 
       ],
       currenScreenIndex: 0,
+      onSubmit(data, state){
+        console.log('submit', {data, state})
+      }
     }}>
 
       <App />
