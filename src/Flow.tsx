@@ -15,6 +15,10 @@ import {
     UseFlowType,
 } from '../types/State';
 import { withDevTools } from './utils/withDevtools';
+import * as FlowStore from './store/flowStore'
+
+// Export Screen types so they can be used
+export const ScreenTypes = FlowStore.ScreenTypes;
 
 const FlowContext = createContext<TFlowContext>([
     {} as State,

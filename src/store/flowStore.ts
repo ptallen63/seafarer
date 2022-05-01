@@ -6,13 +6,75 @@ import { State } from '../../types/State';
 
 /**
  * ===================================
+ *               Helpers
+ * ===================================
+ */
+
+
+/**
+ * check to see if the index is indeed in the screens array
+ *
+ * @param index
+ * @param screens
+ * @returns boolean
+ */
+const screenIndexIsValid = (index: number, screens: Screen[]) => {
+    return screens[index] !== undefined;
+}
+
+const getNextIndex = (data: FlowData, state: State, index?: number,) => {
+    let nextIndex = state.currenScreenIndex + 1;
+    // Check to see if it should be skipped
+    const nextScreen = state.screens[nextIndex];
+    if (nextScreen?.shouldSkip && nextScreen.shouldSkip(data, state)) {
+        nextIndex++;
+    }
+
+    // if there is an explicit index, use that
+    if (index) nextIndex = index;
+
+    if (!screenIndexIsValid(nextIndex, state.screens)) {
+        return -1;
+    }
+
+    return nextIndex;
+
+}
+
+const getPrevIndex = (data: FlowData, state: State, index?: number,) => {
+    let prevIndex = state.currenScreenIndex - 1;
+    const previousScreen = state.screens[prevIndex];
+    if (previousScreen?.shouldSkip && previousScreen.shouldSkip(data, state)) {
+        prevIndex--;
+    }
+    if (!screenIndexIsValid(prevIndex, state.screens)) {
+        return -1
+    }
+    return prevIndex;
+}
+
+
+/**
+ * ===================================
  *               STATE
  * ===================================
  */
 
+export enum ScreenTypes {
+    INPUT = 'INPUT',
+    LOADING = 'LOADING',
+    SUBMIT = 'SUBMIT',
+    DISPLAY = 'DISPLAY'
+}
+
 export type Screen = {
     name: string;
+    type: ScreenTypes;
     component: FC;
+    isValid?: boolean;
+    isDirty?: boolean;
+    shouldSkip?: (data?: FlowData, state?: State) => boolean;
+
 }
 export type FlowData = {
     [key: string]: unknown
@@ -22,15 +84,18 @@ export type FlowData = {
 export type FlowState = {
     screens: Screen[];
     currenScreenIndex: number;
+    previousScreenIndex?: number;
     data: FlowData
     onSubmit?: (data?: FlowData, state?: State) => void
     onNext?: (data?: FlowData, state?: State) => void
-    onPrev?: (data?: FlowData, state?: State) => void
+    onPrevious?: (data?: FlowData, state?: State) => void
+    onSave?: (data?: FlowData, state?: State) => void
 };
 
 export const defaultState: FlowState = {
     screens: [],
     currenScreenIndex: 0,
+    previousScreenIndex: 0,
     data: {}
 };
 
@@ -84,10 +149,6 @@ export type FlowActions = {
     submit: () => void;
 };
 
-const screenIndexIsValid = (index: number,screens: Screen[]) => {
-    return screens[index] !== undefined;
-}
-
 /**
  * This function will take in dispatch, state, router, and will return
  * a list of actions that will be used in useFlow()
@@ -100,39 +161,49 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
             dispatch({ type: ActionTypes.INIT_FLOW, config });
         },
         nextScreen(index){
-            let nextIndex = state.currenScreenIndex + 1;
-
-            // if there is an explicit index, use that
-            if (index) nextIndex = index;
+            const nextIndex = getNextIndex(state.data, state, index);
 
             // check to see if index is valid
-            if (screenIndexIsValid(nextIndex, state.screens)) {
-
-                dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex,})
-            } else {
+            if (nextIndex === -1) {
                 // TODO set up error dispatching
-                console.error('invalid index')
+                return console.error('invalid index')
             }
+
+            dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex,})
 
             // Fire a lifecyle function if it is present
             if (state.onNext) state.onNext(state.data, state)
 
         },
         previousScreen(){
-            let prevIndex = state.currenScreenIndex - 1;
-            if (screenIndexIsValid(prevIndex, state.screens)) {
-
-                dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex })
-            } else {
-                // TODO set up error dispatching
-                console.error('invalid index')
+            let prevIndex = getPrevIndex(state.data, state)
+            if (prevIndex === -1) {
+                return console.error('invalid index')
             }
 
+            dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex })
+
+
             // Fire a lifecyle function if it is present
-            if (state.onPrev) state.onPrev(state.data, state)
+            if (state.onPrevious) state.onPrevious(state.data, state)
         },
         saveAndContinue(data){
+            // Save Data
             dispatch({type: ActionTypes.SAVE_AND_CONTINUE, data})
+
+            // Navigate to next screen
+            const nextIndex = getNextIndex(data, state);
+
+            // check to see if index is valid
+            if (nextIndex === -1) {
+                // TODO set up error dispatching
+                return console.error('invalid index')
+            }
+
+            dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex, })
+
+            // Fire a lifecyle function if it is present
+            if (state.onSave) state.onSave(state.data, state)
         },
         submit(){
             dispatch({type: ActionTypes.SUBMIT});

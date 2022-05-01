@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {FlowProvider, useFlow} from './Flow'
+import {FlowProvider, ScreenTypes} from './Flow'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,9 +25,13 @@ root.render(
       },
       sanityString: 'test',
       screens: [
-        { name: 'screen-1', component: Screen1 },
-        { name: 'screen-2', component: Screen2 },
-        { name: 'screen-3', component: Screen3 },
+        { name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
+        { name: 'screen-2', component: Screen2, type: ScreenTypes.INPUT, shouldSkip(data, state) {
+          console.log('SKIPPING', data, state)
+          if (data?.['foo'] === 'bar') return true;
+          return false;
+        } },
+        { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT },
 
       ],
       currenScreenIndex: 0,

@@ -14,8 +14,6 @@ function App() {
       <CurrentScreenComponent/>
       <button onClick={() => {
         actions.saveAndContinue({ foo: 'bar' });
-        actions.nextScreen();
-        actions.submit();
         return
       }}>Next</button>
       <button onClick={actions.previousScreen}>Prev</button>
