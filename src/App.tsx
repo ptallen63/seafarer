@@ -12,6 +12,13 @@ function App() {
     <div className="App">
       <div>HEllow WOrld</div>
       <CurrentScreenComponent/>
+      <button onClick={() => {
+        actions.saveAndContinue({ foo: 'bar' });
+        actions.nextScreen();
+        actions.submit();
+        return
+      }}>Next</button>
+      <button onClick={actions.previousScreen}>Prev</button>
     </div>
   );
 }

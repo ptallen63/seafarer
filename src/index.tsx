@@ -9,15 +9,9 @@ const root = ReactDOM.createRoot(
 );
 
 const Screen1 = () => {
-  const {actions} = useFlow()
   return <div>
     Screen 1
-    <button onClick={() => {
-      actions.saveAndContinue({ foo: 'bar'});
-      actions.nextScreen(2);
-      actions.submit();
-      return
-    }}>Next</button>
+
   </div>
 }
 const Screen2 = () => <div>Screen 2</div>
