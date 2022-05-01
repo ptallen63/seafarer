@@ -5,13 +5,13 @@ import {useFlow} from './Flow'
 function App() {
 
   const { state, actions } = useFlow();
-  const CurrentScreen = state.screens[state.currenScreenIndex]
+  const CurrentScreenComponent = state.screens[state.currenScreenIndex].component
   console.log({state, actions})
 
   return (
     <div className="App">
       <div>HEllow WOrld</div>
-      <CurrentScreen/>
+      <CurrentScreenComponent/>
     </div>
   );
 }

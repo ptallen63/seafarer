@@ -30,9 +30,10 @@ root.render(
       },
       sanityString: 'test',
       screens: [
-        Screen1,
-        Screen2,
-        Screen3,
+        { name: 'screen-1', component: Screen1 },
+        { name: 'screen-2', component: Screen2 },
+        { name: 'screen-3', component: Screen3 },
+
       ],
       currenScreenIndex: 0,
     }}>

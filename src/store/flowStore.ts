@@ -10,7 +10,10 @@ import { State } from '../../types/State';
  * ===================================
  */
 
-export type Screen = FC
+export type Screen = {
+    name: string;
+    component: FC;
+}
 export type FlowData = {
     [key: string]: unknown
 }

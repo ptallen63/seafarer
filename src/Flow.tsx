@@ -80,29 +80,3 @@ export default { useFlow, FlowProvider };
 // Data
 
 
-
-// export const useFlow = (config) => {
-//     if (FlowContext === undefined) {
-//         throw new Error('useFlow must be used within a FlowProvider');
-//     }
-//     const [state, dispatch] = useContext(FlowContext);
-//     // const [ flowState, setFlowState ] = useState(config)
-
-//     function goTo(n) {
-//         return setFlowState({
-//             ...flowState,
-//             currentScreenIndex: n
-//         });
-//     }
-
-//     function next() {
-//         console.log('next', flowState)
-//         const nextIndex = flowState.currentScreenIndex + 1
-//         return setFlowState({
-//             ...flowState,
-//             currentScreenIndex: nextIndex
-//         })
-//     }
-//     // current, next, previous, state
-//     return { flowState, goTo, next, state }
-// }
