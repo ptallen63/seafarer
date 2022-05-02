@@ -12,3 +12,4 @@
 - [] implement strict validation
 - [] implement verbose flag
 - [x] implement previous screen history
+- [] implement pulling data props from screen component
