@@ -20,6 +20,7 @@ import pkg from '../../package.json';
  * @returns boolean
  */
 const screenIndexIsValid = (index: number, screens: Screen[]) => {
+    console.log('screindexvalid', screens[index], screens[index] !== undefined)
     return screens[index] !== undefined;
 }
 
@@ -75,6 +76,7 @@ export type Screen = {
     isValid?: boolean;
     isDirty?: boolean;
     shouldSkip?: (data?: FlowData, state?: State) => boolean;
+    validate?: (data?: FlowData) => boolean;
 
 }
 export type FlowData = {
@@ -136,7 +138,8 @@ export enum ActionTypes {
     PREVIOUS_SCREEN = 'PREVIOUS_SCREEN',
     SAVE_AND_CONTINUE = 'SAVE_AND_CONTINUE',
     SUBMIT = 'SUBMIT',
-    UPDATE_SCREEN_HISTORY = 'UPDATE_SCREEN_HISTORY'
+    UPDATE_SCREEN_HISTORY = 'UPDATE_SCREEN_HISTORY',
+    VALIDATE_SCREEN = 'VALIDATE_SCREEN',
 }
 
 // Action Interfaces: Should be included in Action type in 'types/Actions'
@@ -170,6 +173,11 @@ export type UpdateScreenHistory = {
     screenHistory: ScreenHistoryRecord[];
 }
 
+export type ValidateScreen = {
+    type: ActionTypes.VALIDATE_SCREEN;
+    screen: Screen;
+}
+
 
 // Actions to be exposed on useFlow(), should be included in 'types/State'
 export type FlowActions = {
@@ -179,6 +187,7 @@ export type FlowActions = {
     saveAndContinue: (data: FlowData) => void;
     submit: () => void;
     updateScreenHistory: (record: ScreenHistoryRecord) => void;
+    validateScreen: (screen: Screen, data: FlowData) => void;
 };
 
 /**
@@ -227,6 +236,12 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
             if (state.onPrevious) state.onPrevious(state.data, state)
         },
         saveAndContinue(data){
+            // Validate
+            if (state.settings?.strictValidation){
+                const currentScreen = state.screens[state.currenScreenIndex]
+                if (!currentScreen.isValid) return;
+            }
+
             // Save Data
             dispatch({type: ActionTypes.SAVE_AND_CONTINUE, data})
 
@@ -260,6 +275,15 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
                 newScreenHistory.push(record)
             }
             dispatch({ type: ActionTypes.UPDATE_SCREEN_HISTORY, screenHistory: newScreenHistory})
+        },
+        validateScreen(screen, data){
+            const newScreen = screen;
+            if (screen.validate) {
+                newScreen.isValid =  screen.validate(data);
+            }
+
+            dispatch({ type: ActionTypes.VALIDATE_SCREEN, screen: newScreen})
+            // return newScreen.isValid;
         }
     };
 }
@@ -288,6 +312,15 @@ export function reducer(state: State, action: Action): State {
             return { ...state, data: newData}
         case ActionTypes.UPDATE_SCREEN_HISTORY:
             return { ...state, screenHistory: action.screenHistory}
+        case ActionTypes.VALIDATE_SCREEN:
+            const screenIndex = state.screens.findIndex(s => s.name === action.screen.name);
+            const screens = [
+                ...state.screens.slice(0,screenIndex),
+                action.screen,
+                ...state.screens.slice(screenIndex + 1)
+            ]
+            console.log(screens)
+            return {...state, screens}
         default:
             return state;
     }

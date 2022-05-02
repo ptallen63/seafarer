@@ -25,13 +25,23 @@ root.render(
       },
       sanityString: 'test',
       screens: [
-        { name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
-        { name: 'screen-2', component: Screen2, type: ScreenTypes.INPUT, shouldSkip(data, state) {
-          console.log('SKIPPING', data, state)
-          if (data?.['foo'] === 'bar') return true;
-          return false;
-        } },
-        { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT },
+        {
+          validate(data) {
+            console.log('...Validating', data);
+            return false;
+          } ,
+          name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
+        {
+          name: 'screen-2',
+          component: Screen2, type: ScreenTypes.INPUT,
+          shouldSkip(data, state) {
+            if (data?.['foo'] === 'bar') return true;
+            return false;
+          },
+          isValid: true,
+
+        },
+        { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT, isValid: true },
 
       ],
       currenScreenIndex: 0,
