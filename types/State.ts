@@ -1,9 +1,8 @@
 import { Action, Actions } from './Actions';
-import { SanityState } from '../src/store/sanityStore';
 import { FlowState } from '../src/store/flowStore';
 
 
-export type State = & SanityState & FlowState;
+export type State = & FlowState;
 
 export type Reducer = (state: State, action: Action) => State;
 export type Dispatch = (action: Action) => void;

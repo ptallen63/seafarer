@@ -2,7 +2,6 @@
 
 ## TODO
 - [x] Implement screen validations
-- [ ] Implement
 - [ ] Create Build
 - [ ] Create Release
 - [ ] support semantic release

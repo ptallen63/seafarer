@@ -69,7 +69,7 @@ export enum ScreenTypes {
     DISPLAY = 'DISPLAY'
 }
 
-export type Screen = {
+export interface Screen {
     name: string;
     type: ScreenTypes;
     component: FC;
@@ -86,7 +86,7 @@ export type FlowData = {
     [key: string]: unknown
 }
 
-export type FlowSettings = {
+export interface FlowSettings {
     // A flag to think about logging things to the console for debug perboses
     verbose?: boolean;
 
@@ -103,7 +103,7 @@ export type ScreenHistoryRecord = {
 }
 
 
-export type FlowState = {
+export interface FlowState {
     screens: Screen[];
     currenScreenIndex: number;
     previousScreenIndex?: number;
@@ -143,6 +143,8 @@ export enum ActionTypes {
     SUBMIT = 'SUBMIT',
     UPDATE_SCREEN_HISTORY = 'UPDATE_SCREEN_HISTORY',
     VALIDATE_SCREEN = 'VALIDATE_SCREEN',
+    //  TODO: add update screen action
+
 }
 
 // Action Interfaces: Should be included in Action type in 'types/Actions'

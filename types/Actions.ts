@@ -1,9 +1,5 @@
 import { State, Dispatch } from './State';
 
-import {
-    SetSanityString,
-    SanityActions
-} from '../src/store/sanityStore';
 
 import {
     FlowActions,
@@ -24,8 +20,6 @@ export type ActionsParams = {
 };
 
 export type Action =
-    // Sanity Actions
-    | SetSanityString
     // Flow Actions
     | InitFlow
     | NextScreen
@@ -35,4 +29,4 @@ export type Action =
     | UpdateScreenHistory
     | ValidateScreen
 
-export type Actions = & SanityActions & FlowActions;
+export type Actions = & FlowActions;

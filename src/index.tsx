@@ -23,7 +23,6 @@ root.render(
       data: {
         bar: 'baz',
       },
-      sanityString: 'test',
       settings: {
         strictValidation: true,
       },
