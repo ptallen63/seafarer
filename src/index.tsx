@@ -25,6 +25,7 @@ root.render(
       },
       settings: {
         strictValidation: true,
+        verbose: true,
       },
       screens: [
         {

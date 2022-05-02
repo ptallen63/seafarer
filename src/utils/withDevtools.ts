@@ -89,13 +89,17 @@ export const withDevTools = (
                 // create a new state
                 const newState = reducer(state || baseState, action);
                 state = newState;
+                const actionToSend = {
+                    ...action,
+                    type: action.type,
+                };
                 devTools.send(
-                    {
-                        ...action,
-                        type: action.type,
-                    },
+                    actionToSend,
                     newState,
                 );
+
+                // only it its verbose
+                if (state.settings?.verbose) console.log(`ACTION: ${actionToSend.type}`, { payload: actionToSend})
             } catch (e) {
                 console.error('error in withDevTools', e);
             }

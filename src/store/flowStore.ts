@@ -11,7 +11,6 @@ import pkg from '../../package.json';
  * ===================================
  */
 
-
 /**
  * check to see if the index is indeed in the screens array
  *
@@ -223,6 +222,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
             // Fire a lifecyle function if it is present
             if (state.onNext) state.onNext(state.data, state)
+
 
         },
         previousScreen(){
