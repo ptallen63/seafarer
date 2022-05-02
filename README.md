@@ -1,7 +1,7 @@
 ## Flow (To Be named Later)
 
 ## TODO
-- [] Implement screen validations
+- [x] Implement screen validations
 - [] Implement
 - [] Create Build
 - [] Create Release

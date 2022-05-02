@@ -73,6 +73,9 @@ export type Screen = {
     name: string;
     type: ScreenTypes;
     component: FC;
+    data?: {
+        [key: string]: unknown;
+    }
     isValid?: boolean;
     isDirty?: boolean;
     shouldSkip?: (data?: FlowData, state?: State) => boolean;
@@ -122,7 +125,7 @@ export const defaultState: FlowState = {
     settings: {
         verbose: false,
         version: pkg.version,
-        strictValidation: true,
+        strictValidation: false,
     }
 };
 

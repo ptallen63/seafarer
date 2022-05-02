@@ -24,11 +24,14 @@ root.render(
         bar: 'baz',
       },
       sanityString: 'test',
+      settings: {
+        strictValidation: true,
+      },
       screens: [
         {
           validate(data) {
             console.log('...Validating', data);
-            return false;
+            return data?.['foo'] === 'bar'
           } ,
           name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
         {
