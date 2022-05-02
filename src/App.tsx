@@ -16,7 +16,7 @@ function App() {
         actions.saveAndContinue({ foo: 'bar' });
         return
       }}>Next</button>
-      <button onClick={actions.previousScreen}>Prev</button>
+      <button onClick={() => actions.previousScreen()}>Prev</button>
     </div>
   );
 }

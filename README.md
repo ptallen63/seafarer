@@ -9,3 +9,6 @@
 - [] Create Tests
 - [] Publish to NPM
 - [] Figure out the best deliver mechanism for the client
+- [] implement strict validation
+- [] implement verbose flag
+- [x] implement previous screen history

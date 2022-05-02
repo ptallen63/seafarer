@@ -11,7 +11,8 @@ import {
     NextScreen,
     PreviousScreen,
     SaveAndContinue,
-    Submit
+    Submit,
+    UpdateScreenHistory
 } from '../src/store/flowStore';
 
 
@@ -30,5 +31,6 @@ export type Action =
     | PreviousScreen
     | SaveAndContinue
     | Submit
+    | UpdateScreenHistory
 
 export type Actions = & SanityActions & FlowActions;

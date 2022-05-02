@@ -39,7 +39,16 @@ export const FlowProvider = ({
         ...defaultState,
         ...initialState,
     };
-    console.log({baseState, defaultState, initialState})
+
+    // TODO: this should be cleaned up, is this the right place?
+    // Set initial Screen history
+    if (baseState?.screenHistory?.length ===  0) {
+        baseState?.screenHistory?.push({
+            index: 0,
+            name: baseState.screens[0].name
+        })
+    }
+
     const reducer = store.reducer();
     const [state, baseDispatch]: [State, Dispatch] = useReducer(
         reducer,

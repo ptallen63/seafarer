@@ -3,6 +3,7 @@
 import { FC } from 'react';
 import { Action, ActionsParams } from '../../types/Actions';
 import { State } from '../../types/State';
+import pkg from '../../package.json';
 
 /**
  * ===================================
@@ -80,11 +81,29 @@ export type FlowData = {
     [key: string]: unknown
 }
 
+export type FlowSettings = {
+    // A flag to think about logging things to the console for debug perboses
+    verbose?: boolean;
+
+    // current version of the flow - recieved from package JSON
+    version?: string;
+
+    // Enforce validation before a screen can advance - defaults to true?
+    strictValidation?: boolean
+}
+
+export type ScreenHistoryRecord = {
+    index: number;
+    name: string;
+}
+
 
 export type FlowState = {
     screens: Screen[];
     currenScreenIndex: number;
     previousScreenIndex?: number;
+    screenHistory?: ScreenHistoryRecord[];
+    settings?: FlowSettings;
     data: FlowData
     onSubmit?: (data?: FlowData, state?: State) => void
     onNext?: (data?: FlowData, state?: State) => void
@@ -94,9 +113,15 @@ export type FlowState = {
 
 export const defaultState: FlowState = {
     screens: [],
+    screenHistory: [],
     currenScreenIndex: 0,
     previousScreenIndex: 0,
-    data: {}
+    data: {},
+    settings: {
+        verbose: false,
+        version: pkg.version,
+        strictValidation: true,
+    }
 };
 
 /**
@@ -111,6 +136,7 @@ export enum ActionTypes {
     PREVIOUS_SCREEN = 'PREVIOUS_SCREEN',
     SAVE_AND_CONTINUE = 'SAVE_AND_CONTINUE',
     SUBMIT = 'SUBMIT',
+    UPDATE_SCREEN_HISTORY = 'UPDATE_SCREEN_HISTORY'
 }
 
 // Action Interfaces: Should be included in Action type in 'types/Actions'
@@ -139,6 +165,11 @@ export type Submit = {
     type: ActionTypes.SUBMIT;
 }
 
+export type UpdateScreenHistory = {
+    type: ActionTypes.UPDATE_SCREEN_HISTORY;
+    screenHistory: ScreenHistoryRecord[];
+}
+
 
 // Actions to be exposed on useFlow(), should be included in 'types/State'
 export type FlowActions = {
@@ -147,6 +178,7 @@ export type FlowActions = {
     previousScreen: () => void;
     saveAndContinue: (data: FlowData) => void;
     submit: () => void;
+    updateScreenHistory: (record: ScreenHistoryRecord) => void;
 };
 
 /**
@@ -171,6 +203,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
             dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex,})
 
+            // TODO: make this more robust, it will break of someone does not use an arrow function to call it
+            // Update the screen history
+            this.updateScreenHistory({ index: nextIndex, name: state.screens[nextIndex].name })
+
             // Fire a lifecyle function if it is present
             if (state.onNext) state.onNext(state.data, state)
 
@@ -183,6 +219,9 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
             dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex })
 
+            // TODO: make this more robust, it will break of someone does not use an arrow function to call it
+            // Update the screen history
+            this.updateScreenHistory({ index: prevIndex, name: state.screens[prevIndex].name})
 
             // Fire a lifecyle function if it is present
             if (state.onPrevious) state.onPrevious(state.data, state)
@@ -202,6 +241,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
             dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex, })
 
+            // TODO: make this more robust, it will break of someone does not use an arrow function to call it
+            // Update the screen history
+            this.updateScreenHistory({ index: nextIndex, name: state.screens[nextIndex].name })
+
             // Fire a lifecyle function if it is present
             if (state.onSave) state.onSave(state.data, state)
         },
@@ -210,6 +253,13 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
             if (state?.onSubmit){
                 state.onSubmit(state.data, state)
             }
+        },
+        updateScreenHistory(record){
+            const newScreenHistory = state.screenHistory || [record];
+            if (newScreenHistory) {
+                newScreenHistory.push(record)
+            }
+            dispatch({ type: ActionTypes.UPDATE_SCREEN_HISTORY, screenHistory: newScreenHistory})
         }
     };
 }
@@ -236,6 +286,8 @@ export function reducer(state: State, action: Action): State {
         case ActionTypes.SAVE_AND_CONTINUE:
             const newData = { ...state.data, ...action.data}
             return { ...state, data: newData}
+        case ActionTypes.UPDATE_SCREEN_HISTORY:
+            return { ...state, screenHistory: action.screenHistory}
         default:
             return state;
     }
