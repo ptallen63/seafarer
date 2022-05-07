@@ -1,3 +1,8 @@
+# Main CI workform for
+# -- Type-check
+# -- Build
+# -- Test
+# -- E2E Tets
 name: CI
 
 on:
