@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { Reducer, State } from '../../types/State';
 import { ActionsParams, Actions } from '../../types/Actions';
 import * as flowStore from './flowStore';
@@ -8,7 +7,7 @@ import combineReducers from './combineReducers';
  * root reducer is responsible for combining all the reducers into a single reducer
  */
 export const reducer = (): Reducer => combineReducers(
-    flowStore.reducer,
+  flowStore.reducer,
 );
 
 /**
@@ -17,7 +16,7 @@ export const reducer = (): Reducer => combineReducers(
  * @returns Actions
  */
 export const actions = (actionsParams: ActionsParams): Actions => ({
-    ...flowStore.actions(actionsParams),
+  ...flowStore.actions(actionsParams),
 });
 
 /**
@@ -25,5 +24,5 @@ export const actions = (actionsParams: ActionsParams): Actions => ({
  * @returns State
  */
 export const defaultState = (): State => ({
-    ...flowStore.defaultState,
+  ...flowStore.defaultState,
 });

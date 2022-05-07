@@ -27,7 +27,5 @@
   "exclude": [
     "node_modules",
     "lib",
-    "src/App.tsx",
-    "src/Playground.tsx"
   ]
 }

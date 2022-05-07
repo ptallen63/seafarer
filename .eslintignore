@@ -1,0 +1,9 @@
+loadershim.js
+jes-preprocess.js
+tests
+*.d.ts
+node_modules
+./**/*.test.js
+
+# CRA file
+reportWebVitals.ts

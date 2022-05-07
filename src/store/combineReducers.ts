@@ -6,7 +6,7 @@ import { Reducer, State } from '../../types/State';
  * @param reducers
  */
 const combineReducers = (...reducers: Reducer[]) => (
-    prevState: State,
-    action: Action,
+  prevState: State,
+  action: Action,
 ): State => reducers.reduce((newState, reducer) => reducer(newState, action), prevState);
 export default combineReducers;

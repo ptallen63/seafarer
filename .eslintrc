@@ -1,0 +1,72 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/recommended"
+    ],
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "import/no-extraneous-dependencies": 0,
+        "jsx-a11y/label-has-for": 0,
+        "max-len": 0,
+        "react/no-array-index-key": 0,
+        "react/prop-types": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "react/forbid-prop-types": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".tsx"
+                ]
+            }
+        ]
+    },
+    "globals": {
+        "window": false,
+        "localStorage": false,
+        "sessionStorage": false,
+        "navigator": false,
+        "describe": false,
+        "it": false,
+        "fetch": false,
+        "expect": false
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ],
+                "paths": [
+                    "src"
+                ]
+            }
+        }
+    }
+}

@@ -31,7 +31,6 @@
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
-    "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
@@ -74,13 +73,9 @@
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "publish": "npm publish",
     "start": "node scripts/start.js",
-    "type-check": "tsc -p ./tsconfig.json --noEmit"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "type-check": "tsc -p ./tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "browserslist": {
     "production": [
@@ -149,5 +144,14 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }
