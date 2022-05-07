@@ -16,12 +16,14 @@ function App() {
       <pre>
         {JSON.stringify(currentScreen, null, 2)}
       </pre>
+      <button onClick={() => actions.previousScreen()}>Prev</button>
       <button onClick={() => {
         actions.validateScreen( currentScreen, { foo: 'bar' })
         actions.saveAndContinue({ foo: 'bar' });
         return
       }}>Next</button>
-      <button onClick={() => actions.previousScreen()}>Prev</button>
+      <button onClick={() => actions.submit()}>Submit</button>
+
     </div>
   );
 }

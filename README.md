@@ -8,8 +8,9 @@
 - [ ] Create Tests
 - [ ] Publish to NPM
 - [ ] Figure out the best deliver mechanism for the client
-- [ ] implement strict validation
-- [ ] implement verbose flag
+- [x] implement strict validation
+- [x] implement verbose flag
 - [x] implement previous screen history
 - [ ] implement pulling data props from screen component
 - [ ] Implement intefaces v types where possible
+- [ ] write documentation
