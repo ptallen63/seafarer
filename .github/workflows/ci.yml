@@ -105,7 +105,6 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-        # ES LINT
       - name: Run Typescrit Compiler
         run: npm run type-check
 
