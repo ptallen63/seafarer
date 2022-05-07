@@ -1,64 +1,95 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {FlowProvider, ScreenTypes} from './Flow'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, {
+    createContext,
+    ReactElement,
+    useContext,
+    useMemo,
+    useReducer,
+} from 'react';
+import * as store from './store/index';
+import {
+    TFlowContext,
+    FlowProviderProps,
+    Dispatch,
+    State,
+    UseFlowType,
+} from '../types/State';
+import { withDevTools } from './utils/withDevtools';
+import * as FlowStore from './store/flowStore'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// Export Screen types so they can be used
+export const ScreenTypes = FlowStore.ScreenTypes;
 
-const Screen1 = () => {
-  return <div>
-    Screen 1
+const FlowContext = createContext<TFlowContext>([
+    {} as State,
+    // eslint-disable-next-line no-console
+    () => console.log('dispatcher not set up'),
+]);
 
-  </div>
-}
-const Screen2 = () => <div>Screen 2</div>
-const Screen3 = () => <div>Screen 3</div>
+const defaultState: State = {
+    ...store.defaultState(),
+};
 
-root.render(
-  <React.StrictMode>
-    <FlowProvider initialState={{
-      data: {
-        bar: 'baz',
-      },
-      settings: {
-        strictValidation: true,
-        verbose: true,
-      },
-      screens: [
-        {
-          validate(data) {
-            console.log('...Validating', data);
-            return data?.['foo'] === 'bar'
-          } ,
-          name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
-        {
-          name: 'screen-2',
-          component: Screen2, type: ScreenTypes.INPUT,
-          shouldSkip(data, state) {
-            if (data?.['foo'] === 'bar') return true;
-            return false;
-          },
-          isValid: true,
+export const FlowProvider = ({
+    initialState,
+    ...props
+}: FlowProviderProps): ReactElement => {
 
-        },
-        { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT, isValid: true },
+    const baseState = {
+        ...defaultState,
+        ...initialState,
+    };
 
-      ],
-      currenScreenIndex: 0,
-      onSubmit(data, state){
-        console.log('submit', {data, state})
-      }
-    }}>
+    // TODO: this should be cleaned up, is this the right place?
+    // Set initial Screen history
+    if (baseState?.screenHistory?.length ===  0) {
+        baseState?.screenHistory?.push({
+            index: 0,
+            name: baseState.screens[0].name
+        })
+    }
 
-      <App />
-    </FlowProvider>
-  </React.StrictMode>
-);
+    const reducer = store.reducer();
+    const [state, baseDispatch]: [State, Dispatch] = useReducer(
+        reducer,
+        baseState,
+    );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+    const { dispatch } = withDevTools(baseDispatch, reducer, baseState);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const value: TFlowContext = useMemo(() => [state, dispatch], [state]);
+
+
+    return <FlowContext.Provider value={ value } {...props } />;
+};
+
+export const useFlow = (): UseFlowType => {
+    if (FlowContext === undefined) {
+        throw new Error('useFlow must be used within a FlowProvider');
+    }
+    const [state, dispatch]: [State, Dispatch] = useContext(FlowContext);
+    return {
+        state,
+        actions: store.actions({ dispatch, state }),
+    };
+};
+
+export default { useFlow, FlowProvider };
+
+// What should go in the state?
+// data, screens
+
+// Taxonomies
+// Screen
+// next
+// previous
+// validate
+// component
+// lifecycleHooks
+// logic
+// Flow
+// Sreens
+// Data
+
+
