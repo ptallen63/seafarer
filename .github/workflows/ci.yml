@@ -15,7 +15,7 @@ jobs:
   #       uses: actions/checkout@v2
 
   #     - name: Cache node modules
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cache-name: cache-node-modules
   #       with:
@@ -26,7 +26,7 @@ jobs:
   #           ${{ runner.os }}-build-
   #           ${{ runner.os }}-
   #     - name: Cache Cypress
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cypress-cache-name: cache-cypress
   #       with:
@@ -56,7 +56,7 @@ jobs:
   #       uses: actions/checkout@v2
 
   #     - name: Cache node modules
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cache-name: cache-node-modules
   #       with:
@@ -67,7 +67,7 @@ jobs:
   #           ${{ runner.os }}-build-
   #           ${{ runner.os }}-
   #     - name: Cache Cypress
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cypress-cache-name: cache-cypress
   #       with:
@@ -97,7 +97,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -108,7 +108,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Cache Cypress
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         env:
           cypress-cache-name: cache-cypress
         with:
@@ -140,7 +140,7 @@ jobs:
   #     uses: actions/checkout@v2
 
   #   - name: Cache node modules
-  #     uses: actions/cache@v1
+  #     uses: actions/cache@v3
   #     env:
   #       cache-name: cache-node-modules
   #     with:
@@ -151,7 +151,7 @@ jobs:
   #         ${{ runner.os }}-build-
   #         ${{ runner.os }}-
   #   - name: Cache Cypress
-  #     uses: actions/cache@v1
+  #     uses: actions/cache@v3
   #     env:
   #       cypress-cache-name: cache-cypress
   #     with:
@@ -179,7 +179,7 @@ jobs:
   #     - name: Checkout
   #       uses: actions/checkout@v1
   #     - name: Cache node modules
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cache-name: cache-node-modules
   #       with:
@@ -190,7 +190,7 @@ jobs:
   #           ${{ runner.os }}-build-
   #           ${{ runner.os }}-
   #     - name: Cache Cypress
-  #       uses: actions/cache@v1
+  #       uses: actions/cache@v3
   #       env:
   #         cypress-cache-name: cache-cypress
   #       with:
