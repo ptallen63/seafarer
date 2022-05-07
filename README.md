@@ -14,3 +14,8 @@
 - [ ] implement pulling data props from screen component
 - [ ] Implement intefaces v types where possible
 - [ ] write documentation
+
+## Installation
+<!-- TODO: Add installation instruction -->
+
+## Usuage
