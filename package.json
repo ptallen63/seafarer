@@ -73,7 +73,8 @@
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "publish": "npm publish",
-    "start": "node scripts/start.js"
+    "start": "node scripts/start.js",
+    "type-check": "tsc -p ./tsconfig.json --noEmit"
   },
   "eslintConfig": {
     "extends": [

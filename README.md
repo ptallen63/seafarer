@@ -15,6 +15,8 @@
 - [ ] Implement intefaces v types where possible
 - [ ] write documentation
 - [ ] Clean up Dev
+- [ ] Setup Huskey
+- [ ]
 
 ## Installation
 <!-- TODO: Add installation instruction -->
