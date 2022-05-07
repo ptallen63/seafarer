@@ -1,13 +1,11 @@
 import React from 'react';
 
-import {useFlow} from '.'
+import { useFlow } from '.';
 
 function App() {
 
   const { state, actions } = useFlow();
   const currentScreen = state.screens[state.currenScreenIndex];
-  const CurrentScreenComponent = currentScreen.component
-  console.log({state, actions})
 
   return (
     <div className="App">
@@ -18,9 +16,9 @@ function App() {
       </pre>
       <button onClick={() => actions.previousScreen()}>Prev</button>
       <button onClick={() => {
-        actions.validateScreen( currentScreen, { foo: 'bar' })
+        actions.validateScreen( currentScreen, { foo: 'bar' });
         actions.saveAndContinue({ foo: 'bar' });
-        return
+        return;
       }}>Next</button>
       <button onClick={() => actions.submit()}>Submit</button>
 
