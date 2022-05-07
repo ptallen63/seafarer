@@ -20,7 +20,7 @@ jobs:
   #         cache-name: cache-node-modules
   #       with:
   #         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #         key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
   #         restore-keys: |
   #           ${{ runner.os }}-build-${{ env.cache-name }}-
   #           ${{ runner.os }}-build-
@@ -61,7 +61,7 @@ jobs:
   #         cache-name: cache-node-modules
   #       with:
   #         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #         key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
   #         restore-keys: |
   #           ${{ runner.os }}-build-${{ env.cache-name }}-
   #           ${{ runner.os }}-build-
@@ -102,7 +102,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -145,7 +145,7 @@ jobs:
   #       cache-name: cache-node-modules
   #     with:
   #       path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-  #       key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #       key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
   #       restore-keys: |
   #         ${{ runner.os }}-build-${{ env.cache-name }}-
   #         ${{ runner.os }}-build-
@@ -184,7 +184,7 @@ jobs:
   #         cache-name: cache-node-modules
   #       with:
   #         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #         key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
   #         restore-keys: |
   #           ${{ runner.os }}-build-${{ env.cache-name }}-
   #           ${{ runner.os }}-build-
@@ -195,7 +195,7 @@ jobs:
   #         cypress-cache-name: cache-cypress
   #       with:
   #         path: ~/.cache # npm cache files are stored in `~/.npm` on Linux/macOS
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+  #         key: $v1.0.0-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
   #         restore-keys: |
   #           ${{ runner.os }}-build-${{ env.cache-name }}-
   #           ${{ runner.os }}-build-
