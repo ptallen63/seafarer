@@ -2,7 +2,7 @@
 
 ## TODO
 - [x] Implement screen validations
-- [ ] Create Build
+- [x] Create Build
 - [ ] Create Release
 - [ ] support semantic release
 - [ ] Create Tests
@@ -16,7 +16,8 @@
 - [ ] write documentation
 - [ ] Clean up Dev
 - [ ] Setup Huskey
-- [ ]
+- [ ] Set up a create-release action
+- [x] Linting actions
 
 ## Installation
 <!-- TODO: Add installation instruction -->
