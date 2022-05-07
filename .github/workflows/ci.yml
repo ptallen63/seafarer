@@ -19,17 +19,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: $v1.0.7-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
       - name: Cache Cypress
         uses: actions/cache@v3
         env:
@@ -37,14 +26,12 @@ jobs:
         with:
           path: ~/.cache # npm cache files are stored in `~/.npm` on Linux/macOS
           key: $v1.0.7-{{ runner.os }}-build-${{ env.cypress-cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cypress-cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -85,7 +72,7 @@ jobs:
   #     - name: Set up Node.js
   #       uses: actions/setup-node@v1
   #       with:
-  #         node-version: 1
+  #         node-version: 16
 
   #     - name: Install Node.js dependencies
   #       run: npm ci
@@ -101,16 +88,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Cache npm configs
-        id: node-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-nodes-modules
-        with:
-          # https://github.com/actions/cache/blob/main/examples.md#node---npm
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: $v1.0.7-{{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-
       - name: Cache Cypress
         uses: actions/cache@v3
         env:
@@ -120,9 +97,10 @@ jobs:
           key: $v1.0.7-{{ runner.os }}-build-${{ env.cypress-cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
 
       - name: Install Node.js dependencies
         run: npm ci
@@ -159,7 +137,7 @@ jobs:
   #   - name: Set up Node.js
   #     uses: actions/setup-node@v1
   #     with:
-  #       node-version: 1
+  #       node-version: 16
 
   #   - name: Install Node.js dependencies
   #     run: npm ci
