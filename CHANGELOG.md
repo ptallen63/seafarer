@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/ptallen63/flow/compare/1.1.0...1.1.1) (2022-05-08)
+
+
+### Bug Fixes
+
+* testing relase ([6733611](https://github.com/ptallen63/flow/commit/6733611070545e6309358fb2a5a375a8a8840312))
+
 # [1.1.0](https://github.com/ptallen63/flow/compare/1.0.0...1.1.0) (2022-05-08)
 
 
