@@ -3,7 +3,7 @@
 ## TODO
 - [x] Implement screen validations
 - [x] Create Build
-- [ ] Create Release
+- [x] Create Release
 - [ ] support semantic release
 - [ ] Create Tests
 - [ ] [Publish to NPM](https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#publish-to-npmjs-and-gpr-with-npm)
@@ -15,7 +15,7 @@
 - [ ] Implement intefaces v types where possible
 - [ ] write documentation
 - [ ] Clean up Dev
-- [ ] Setup Huskey
+- [x] Setup Huskey
 - [ ] Set up a create-release action
 - [x] Linting actions
 - [ ] remove the CRA cruft
