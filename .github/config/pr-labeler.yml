@@ -1,4 +1,4 @@
 feature: ['feature/*', 'feat/*']
 fix: ['fix/*', 'hotfix/*']
-chore: ['chore/*', 'refactor/*'
+chore: ['chore/*', 'refactor/*', build/*]
 docs: ['docs/*', 'documentation/*' ]
