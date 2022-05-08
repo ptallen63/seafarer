@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ptallen63/flow/compare/1.0.0...1.1.0) (2022-05-08)
+
+
+### Features
+
+* testing release action ([33b3c6d](https://github.com/ptallen63/flow/commit/33b3c6d926da6f30cda0b9cc631d673726656f82))
+
 # 1.0.0 (2022-05-08)
 
 
