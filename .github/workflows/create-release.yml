@@ -1,0 +1,26 @@
+name: Create Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - name: Install dependencies
+        run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
+        run: npx semantic-release
