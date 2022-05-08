@@ -19,6 +19,7 @@
 - [ ] Set up a create-release action
 - [x] Linting actions
 - [ ] remove the CRA cruft
+- [ ] Add contributing doc
 
 ## Installation
 <!-- TODO: Add installation instruction -->
