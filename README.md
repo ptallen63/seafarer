@@ -1,26 +1,4 @@
 ## Flow (To Be named Later)
-
-## TODO
-- [x] Implement screen validations
-- [x] Create Build
-- [x] Create Release
-- [ ] support semantic release
-- [ ] Create Tests
-- [ ] [Publish to NPM](https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#publish-to-npmjs-and-gpr-with-npm)
-- [ ] Figure out the best deliver mechanism for the client
-- [x] implement strict validation
-- [x] implement verbose flag
-- [x] implement previous screen history
-- [ ] implement pulling data props from screen component
-- [ ] Implement intefaces v types where possible
-- [ ] write documentation
-- [ ] Clean up Dev
-- [x] Setup Huskey
-- [ ] Set up a create-release action
-- [x] Linting actions
-- [ ] remove the CRA cruft
-- [ ] Add contributing doc
-
 ## Installation
 <!-- TODO: Add installation instruction -->
 
@@ -66,3 +44,6 @@ function App() {
   );
 }
 ```
+
+## Project
+[Github Project](https://github.com/users/ptallen63/projects/2/views/1?groupedBy%5BcolumnId%5D=4138946&visibleFields=%5B%22Title%22%2C%22Status%22%2C4139073%2C%22Linked+Pull+Requests%22%5D)
