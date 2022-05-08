@@ -18,6 +18,7 @@
 - [ ] Setup Huskey
 - [ ] Set up a create-release action
 - [x] Linting actions
+- [ ] remove the CRA cruft
 
 ## Installation
 <!-- TODO: Add installation instruction -->
