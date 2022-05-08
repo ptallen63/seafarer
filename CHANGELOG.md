@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/ptallen63/flow/compare/1.1.2...1.1.3) (2022-05-08)
+
+
+### Bug Fixes
+
+* test fixed [#1](https://github.com/ptallen63/flow/issues/1) ([#5](https://github.com/ptallen63/flow/issues/5)) ([7254065](https://github.com/ptallen63/flow/commit/7254065ce5804b70846fd433d81c67575d74884a)), closes [#4](https://github.com/ptallen63/flow/issues/4)
+
 ## [1.1.2](https://github.com/ptallen63/flow/compare/1.1.1...1.1.2) (2022-05-08)
 
 
