@@ -1,7 +1,6 @@
 ## Flow (To Be named Later)
 ## Installation
 <!-- TODO: Add installation instruction -->
-
 ## Usuage
 ### Provider
 Comes with a `Provider` to be wrapped the parent component where you want to use the app
