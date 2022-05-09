@@ -142,7 +142,7 @@ export enum ActionTypes {
   SUBMIT = 'SUBMIT',
   UPDATE_SCREEN_HISTORY = 'UPDATE_SCREEN_HISTORY',
   VALIDATE_SCREEN = 'VALIDATE_SCREEN',
-  //  TODO: add update screen action
+  //  TODO: add update screen action #13
 
 }
 
