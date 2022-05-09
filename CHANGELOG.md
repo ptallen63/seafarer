@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ptallen63/flow/compare/1.1.4...1.2.0) (2022-05-09)
+
+
+### Features
+
+* adding broad support for the test commad ([#9](https://github.com/ptallen63/flow/issues/9)) ([a669165](https://github.com/ptallen63/flow/commit/a6691658ed4b6882c082526375373ae128512575))
+
 ## [1.1.4](https://github.com/ptallen63/flow/compare/1.1.3...1.1.4) (2022-05-09)
 
 
