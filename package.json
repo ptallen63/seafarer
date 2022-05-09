@@ -72,6 +72,8 @@
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "publish": "npm publish",
     "start": "node scripts/start.js",
+    "test": "node scripts/test.js",
+    "test:ci": "CI=true node scripts/test.js --passWithNoTests",
     "type-check": "tsc -p ./tsconfig.json --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"

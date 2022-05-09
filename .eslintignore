@@ -3,7 +3,7 @@ jes-preprocess.js
 tests
 *.d.ts
 node_modules
-./**/*.test.js
+./**/*.test.*
 
 # CRA file
 reportWebVitals.ts
