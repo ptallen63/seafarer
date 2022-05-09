@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/ptallen63/flow/compare/1.1.3...1.1.4) (2022-05-09)
+
+
+### Bug Fixes
+
+* getting the correct perms ([#7](https://github.com/ptallen63/flow/issues/7)) ([3ee2bad](https://github.com/ptallen63/flow/commit/3ee2bad3eb590982a2d72acd158c97ad726197bc))
+
 ## [1.1.3](https://github.com/ptallen63/flow/compare/1.1.2...1.1.3) (2022-05-08)
 
 
