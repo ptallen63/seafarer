@@ -71,7 +71,7 @@ export enum ScreenTypes {
 export interface Screen {
   name: string;
   type: ScreenTypes;
-  component: FC;
+  component?: FC;
   data?: {
     [key: string]: unknown;
   }
@@ -288,7 +288,6 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
       }
 
       dispatch({ type: ActionTypes.VALIDATE_SCREEN, screen: newScreen });
-      // return newScreen.isValid;
     },
   };
 }
@@ -307,7 +306,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case ActionTypes.INIT_FLOW:
-      return { ...state };
+      return { ...state, ...action.config };
     case ActionTypes.NEXT_SCREEN:
       return { ...state, currenScreenIndex: action.index };
     case ActionTypes.PREVIOUS_SCREEN:
@@ -324,7 +323,6 @@ export function reducer(state: State, action: Action): State {
         action.screen,
         ...state.screens.slice(screenIndex + 1),
       ];
-      console.log(screens);
       return { ...state, screens };
     default:
       return state;

@@ -3,7 +3,9 @@ jes-preprocess.js
 tests
 *.d.ts
 node_modules
-./**/*.test.*
+./**/*.test.ts
+src/sanity.test.ts
+src/**/*.test.ts
 
 # CRA file
 reportWebVitals.ts
