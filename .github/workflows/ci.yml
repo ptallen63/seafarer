@@ -117,10 +117,10 @@ jobs:
         key: $v1.0.7-{{ runner.os }}-build-${{ env.cypress-cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
     - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
 
     - name: Install Node.js dependencies
       run: npm ci
