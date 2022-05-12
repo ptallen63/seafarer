@@ -21,8 +21,8 @@ import { useFlow } from 'TO BE NAME LATER)';
 
 function App() {
 
-  const { state, actions } = useFlow();
-  const currentScreen = state.screens[state.currenScreenIndex];
+  const { flowState, flowActions } = useFlow();
+  const currentScreen = flowState.screens[state.currenScreenIndex];
 
   return (
     <div className="App">
@@ -31,13 +31,13 @@ function App() {
       <pre>
         {JSON.stringify(currentScreen, null, 2)}
       </pre>
-      <button onClick={() => actions.previousScreen()}>Prev</button>
+      <button onClick={() => flowActions.previousScreen()}>Prev</button>
       <button onClick={() => {
-        actions.validateScreen( currentScreen, { foo: 'bar' });
-        actions.saveAndContinue({ foo: 'bar' });
+        flowActions.validateScreen( currentScreen, { foo: 'bar' });
+        flowActions.saveAndContinue({ foo: 'bar' });
         return;
       }}>Next</button>
-      <button onClick={() => actions.submit()}>Submit</button>
+      <button onClick={() => flowActions.submit()}>Submit</button>
 
     </div>
   );
