@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ptallen63/flow/compare/1.2.0...1.3.0) (2022-05-13)
+
+
+### Features
+
+* fixes [#12](https://github.com/ptallen63/flow/issues/12) ([aa00bb2](https://github.com/ptallen63/flow/commit/aa00bb219bfabe54eb70ce83f607130120ad1ba9))
+
 # [1.2.0](https://github.com/ptallen63/flow/compare/1.1.4...1.2.0) (2022-05-09)
 
 
