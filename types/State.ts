@@ -18,3 +18,8 @@ export type FlowProviderProps = {
   initialState: State;
   children: React.ReactNode;
 };
+
+export interface IbaseOptions {
+  dispatch: Dispatch,
+  state: State,
+}
