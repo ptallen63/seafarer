@@ -1,8 +1,8 @@
 import { Action, Actions } from './Actions';
-import { FlowState } from '../src/store/flowStore';
+import { IFlowState } from '../src/store/flowStore';
 
 
-export type State = & FlowState;
+export type State = & IFlowState;
 
 export type Reducer = (state: State, action: Action) => State;
 export type Dispatch = (action: Action) => void;

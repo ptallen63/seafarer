@@ -24,7 +24,7 @@ const screenIndexIsValid = (index: number, screens: Screen[]) => {
 };
 
 const getNextIndex = (data: FlowData, state: State, index?: number) => {
-  let nextIndex = state.currenScreenIndex + 1;
+  let nextIndex = state.currentScreenIndex + 1;
   // Check to see if it should be skipped
   const nextScreen = state.screens[nextIndex];
   if (nextScreen?.shouldSkip && nextScreen.shouldSkip(data, state)) {
@@ -43,7 +43,7 @@ const getNextIndex = (data: FlowData, state: State, index?: number) => {
 };
 
 const getPrevIndex = (data: FlowData, state: State, index?: number) => {
-  let prevIndex = state.currenScreenIndex - 1;
+  let prevIndex = state.currentScreenIndex - 1;
   const previousScreen = state.screens[prevIndex];
   if (previousScreen?.shouldSkip && previousScreen.shouldSkip(data, state)) {
     prevIndex--;
@@ -102,23 +102,28 @@ export type ScreenHistoryRecord = {
 };
 
 
-export interface FlowState {
+export interface IFlowConfig {
+  startingScreenIndex?: number,
   screens: Screen[];
-  currenScreenIndex: number;
-  previousScreenIndex?: number;
-  screenHistory?: ScreenHistoryRecord[];
+  data?: FlowData;
   settings?: FlowSettings;
-  data: FlowData
   onSubmit?: (data?: FlowData, state?: State) => void
   onNext?: (data?: FlowData, state?: State) => void
   onPrevious?: (data?: FlowData, state?: State) => void
   onSave?: (data?: FlowData, state?: State) => void
 }
 
-export const defaultState: FlowState = {
+export interface IFlowState extends IFlowConfig {
+  data: FlowData
+  currentScreenIndex: number;
+  previousScreenIndex?: number;
+  screenHistory?: ScreenHistoryRecord[];
+
+}
+export const defaultState: IFlowState = {
   screens: [],
   screenHistory: [],
-  currenScreenIndex: 0,
+  currentScreenIndex: 0,
   previousScreenIndex: 0,
   data: {},
   settings: {
@@ -146,10 +151,11 @@ export enum ActionTypes {
 
 }
 
+
 // Action Interfaces: Should be included in Action type in 'types/Actions'
 export type InitFlow = {
   type: ActionTypes.INIT_FLOW;
-  config: FlowState
+  config: IFlowConfig
 };
 
 export type NextScreen = {
@@ -185,7 +191,7 @@ export type ValidateScreen = {
 
 // Actions to be exposed on useFlow(), should be included in 'types/State'
 export type FlowActions = {
-  initFlow: (config: FlowState) => void;
+  initFlow: (config: IFlowConfig) => void;
   nextScreen: (index?: number) => void;
   previousScreen: () => void;
   saveAndContinue: (data: FlowData) => void;
@@ -264,7 +270,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
     saveAndContinue(data) {
       // Validate
       if (state.settings?.strictValidation) {
-        const currentScreen = state.screens[state.currenScreenIndex];
+        const currentScreen = state.screens[state.currentScreenIndex];
         if (!currentScreen.isValid) return;
       }
 
@@ -323,11 +329,12 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case ActionTypes.INIT_FLOW:
-      return { ...state, ...action.config };
+      const currentScreenIndex = action.config.startingScreenIndex || 0;
+      return { ...state, ...action.config, currentScreenIndex };
     case ActionTypes.NEXT_SCREEN:
-      return { ...state, currenScreenIndex: action.index };
+      return { ...state, currentScreenIndex: action.index };
     case ActionTypes.PREVIOUS_SCREEN:
-      return { ...state, currenScreenIndex: action.index };
+      return { ...state, currentScreenIndex: action.index };
     case ActionTypes.SAVE_AND_CONTINUE:
       const newData = { ...state.data, ...action.data };
       return { ...state, data: newData };

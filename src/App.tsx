@@ -5,7 +5,7 @@ import { useFlow } from '.';
 function App() {
 
   const { flowState, flowActions } = useFlow();
-  const currentScreen = flowState.screens[flowState.currenScreenIndex];
+  const currentScreen = flowState.screens[flowState.currentScreenIndex];
 
   return (
     <div className="App">

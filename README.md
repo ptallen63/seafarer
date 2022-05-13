@@ -8,8 +8,9 @@ One of the main purposes for this project is to make creating simple step flows 
 
 ## Usage
 
-### Provider
-Comes with a `Provider` to be wrapped the parent component where you want to use the app
+### `<FlowProvider/>`
+
+Comes with a `<FlowProvider/>` to wrap the parent component where you want to use the flow.
 
 ```tsx
     <FlowProvider initialState={{
@@ -18,6 +19,42 @@ Comes with a `Provider` to be wrapped the parent component where you want to use
       <App />
     </FlowProvider>
 ```
+
+### Flow Config
+
+When a intializing a flow, there are several options available to you.
+
+```typescript
+export interface FlowConfig {
+  startIndex: number;
+  screens: Screen[];
+  settings?: FlowSettings;
+  data?: FlowData
+  onSubmit?: (data?: FlowData, state?: State) => void
+  onNext?: (data?: FlowData, state?: State) => void
+  onPrevious?: (data?: FlowData, state?: State) => void
+  onSave?: (data?: FlowData, state?: State) => void
+}
+```
+
+| Property | Required | Default | Description |
+| -- | -- | -- |-- |
+| `startIndex` | `true` | `0` | The start index of the screen in the screens array |
+| `screens` | `true` | `[]` | An Array of screen objects |
+| `settings` | `false` | see [settings](#flow-settings) section | flow settings |
+| `data` | `false` | - | Any flow data you want the flow to initialize with|
+| `OnSubmit` | `false` | - | Hook to do an action on a submit of the flow|
+| `onNext` | `false` | - | Hook to do an action on a next action of the flow|
+| `onPrevious` | `false` | - | Hook to do an action on a previous action of the flow|
+| `onSave` | `false` | - | Hook to do an action on a save action of the flow|
+
+#### Flow Settings
+
+| Property | Required | Default | Description |
+| -- | -- | -- |-- |
+|`verbose` | 'false' | `false` | Provide extra console output base for screen actions |
+|`strictValidation` | 'true' | `false` | A screen must have a `isValid` set to `true` for the flow to advance |
+
 
 ### `UseFlow()`
 
