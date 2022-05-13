@@ -43,10 +43,10 @@ export interface FlowConfig {
 | `screens` | `true` | `[]` | An Array of screen objects |
 | `settings` | `false` | see [settings](#flow-settings) section | flow settings |
 | `data` | `false` | - | Any flow data you want the flow to initialize with|
-| `OnSubmit` | `false` | - | Hook to do an action on a submit of the flow|
-| `onNext` | `false` | - | Hook to do an action on a next action of the flow|
-| `onPrevious` | `false` | - | Hook to do an action on a previous action of the flow|
-| `onSave` | `false` | - | Hook to do an action on a save action of the flow|
+| `onSubmit(data, state)` | `false` | - | Hook to do an action on a submit of the flow|
+| `onNext(data, state)` | `false` | - | Hook to do an action on a next action of the flow|
+| `onPrevious(data, state)` | `false` | - | Hook to do an action on a previous action of the flow|
+| `onSave(data, state)` | `false` | - | Hook to do an action on a save action of the flow|
 
 #### Flow Settings
 
@@ -55,6 +55,56 @@ export interface FlowConfig {
 |`verbose` | 'false' | `false` | Provide extra console output base for screen actions |
 |`strictValidation` | 'true' | `false` | A screen must have a `isValid` set to `true` for the flow to advance |
 
+#### Example Config
+
+```typescript
+import { ScreenTypes } from 'flow'
+
+const flowConfig = {
+
+      settings: {
+        strictValidation: true,
+        verbose: true,
+      },
+      screens: [
+        {
+          validate(data) {
+            console.log('...Validating', data);
+            return data?.foo === 'bar';
+          },
+          name: 'screen-1',
+          type: ScreenTypes.INPUT
+        },
+        {
+          name: 'screen-2',
+          type: ScreenTypes.INPUT,
+          shouldSkip(data) {
+            return data?.foo === 'bar';
+          },
+          isValid: true,
+
+        },
+        {
+          name: 'screen-3',
+          component: Screen3,
+          type: ScreenTypes.INPUT,
+          isValid: true
+        },
+
+      ],
+      startScreenIndex: 0,
+      onSubmit(data, state) {
+        console.log('submit', { data, state });
+      },
+}
+
+```
+
+## Screens
+
+### Screen Settings
+
+#### Screen Input Types
 
 ### `UseFlow()`
 
@@ -85,6 +135,9 @@ function App() {
   );
 }
 ```
+
+## Contributing
+
 
 ## Project
 [Github Project](https://github.com/users/ptallen63/projects/2/views/1?groupedBy%5BcolumnId%5D=4138946&visibleFields=%5B%22Title%22%2C%22Status%22%2C4139073%2C%22Linked+Pull+Requests%22%5D)
