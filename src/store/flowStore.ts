@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 import { FC } from 'react';
 import { Action, ActionsParams } from '../../types/Actions';
-import { State } from '../../types/State';
+import { State, IbaseOptions } from '../../types/State';
 import pkg from '../../package.json';
 
 /**
@@ -195,6 +195,26 @@ export type FlowActions = {
 };
 
 /**
+ * Take a screen record and add it to the screen history
+ *
+ * @param record
+ * @param dispatch
+ * @param state
+ */
+
+
+interface IupdateScreenHistoryOptions extends IbaseOptions {
+  record: ScreenHistoryRecord
+}
+function updateScreenHistory({ record, dispatch, state }: IupdateScreenHistoryOptions) {
+  const newScreenHistory = state.screenHistory || [record];
+  if (newScreenHistory) {
+    newScreenHistory.push(record);
+  }
+  dispatch({ type: ActionTypes.UPDATE_SCREEN_HISTORY, screenHistory: newScreenHistory });
+}
+
+/**
  * This function will take in dispatch, state, router, and will return
  * a list of actions that will be used in useFlow()
  *
@@ -216,9 +236,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
       dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex });
 
-      // TODO: make this more robust, it will break of someone does not use an arrow function to call it
       // Update the screen history
-      this.updateScreenHistory({ index: nextIndex, name: state.screens[nextIndex].name });
+      const record = { index: nextIndex, name: state.screens[nextIndex].name };
+      updateScreenHistory({ record, dispatch, state });
+
 
       // Fire a lifecyle function if it is present
       if (state.onNext) state.onNext(state.data, state);
@@ -233,9 +254,9 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
       dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex });
 
-      // TODO: make this more robust, it will break of someone does not use an arrow function to call it
       // Update the screen history
-      this.updateScreenHistory({ index: prevIndex, name: state.screens[prevIndex].name });
+      const record = { index: prevIndex, name: state.screens[prevIndex].name };
+      updateScreenHistory({ record, dispatch, state });
 
       // Fire a lifecyle function if it is present
       if (state.onPrevious) state.onPrevious(state.data, state);
@@ -261,9 +282,9 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
 
       dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex });
 
-      // TODO: make this more robust, it will break of someone does not use an arrow function to call it
       // Update the screen history
-      this.updateScreenHistory({ index: nextIndex, name: state.screens[nextIndex].name });
+      const record = { index: nextIndex, name: state.screens[nextIndex].name };
+      updateScreenHistory({ record, dispatch, state });
 
       // Fire a lifecyle function if it is present
       if (state.onSave) state.onSave(state.data, state);
@@ -275,11 +296,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
       }
     },
     updateScreenHistory(record) {
-      const newScreenHistory = state.screenHistory || [record];
-      if (newScreenHistory) {
-        newScreenHistory.push(record);
-      }
-      dispatch({ type: ActionTypes.UPDATE_SCREEN_HISTORY, screenHistory: newScreenHistory });
+      updateScreenHistory({ record, dispatch, state });
     },
     validateScreen(screen, data) {
       const newScreen = screen;

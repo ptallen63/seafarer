@@ -54,10 +54,14 @@ describe('Options Reducer', () => {
 
     test('Dont Increment if its not possible', () => {
       nextScreen(-1);
+      nextScreen(5);
       expect(dispatch).not.toBeCalled();
     });
-    test.skip('Test advancing to next screen', () => {
-      // TODO
+    test('Test advancing to next screen', () => {
+        nextScreen(1);
+        expect(dispatch).toBeCalled();
+        nextScreen();
+        expect(dispatch).toBeCalled();
     });
   });
   describe('PREVIOUS_SCREEN', () => {
