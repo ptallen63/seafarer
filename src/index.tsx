@@ -70,26 +70,10 @@ export const useFlow = (): UseFlowType => {
   }
   const [state, dispatch]: [State, Dispatch] = useContext(FlowContext);
   return {
-    state,
-    actions: store.actions({ dispatch, state }),
+    flowState: state,
+    flowActions: store.actions({ dispatch, state }),
   };
 };
 
 export default { useFlow, FlowProvider };
-
-// What should go in the state?
-// data, screens
-
-// Taxonomies
-// Screen
-// next
-// previous
-// validate
-// component
-// lifecycleHooks
-// logic
-// Flow
-// Sreens
-// Data
-
 

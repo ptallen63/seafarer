@@ -10,11 +10,11 @@ export type Dispatch = (action: Action) => void;
 export type TFlowContext = [State, Dispatch];
 
 export type UseFlowType = {
-    state: State
-    actions: Actions
+  flowState: State
+  flowActions: Actions
 };
 
 export type FlowProviderProps = {
-    initialState: State;
-    children: React.ReactNode;
+  initialState: State;
+  children: React.ReactNode;
 };
