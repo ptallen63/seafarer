@@ -1,8 +1,13 @@
-## Flow (To Be named Later)
+# Flow (To Be named Later)
+
+One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With <<INSTER NAME>> only worry about what your flow is doing. Written with modern React <<INSERT NAME>> provides a simple hook to use throughout your application. You can only use the core logic engine of <<INSERT NAME>> or add your own screen components.
+
 ## Installation
+
 <!-- TODO: Add installation instruction -->
 
-## Usuage
+## Usage
+
 ### Provider
 Comes with a `Provider` to be wrapped the parent component where you want to use the app
 
