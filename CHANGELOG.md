@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/ptallen63/flow/compare/1.3.0...1.3.1) (2022-05-13)
+
+
+### Bug Fixes
+
+* updating some state names ([cfa45f6](https://github.com/ptallen63/flow/commit/cfa45f6982d068f07f575a1c892fbf31845baf08))
+
 # [1.3.0](https://github.com/ptallen63/flow/compare/1.2.0...1.3.0) (2022-05-13)
 
 
