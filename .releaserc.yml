@@ -1,5 +1,5 @@
 tagFormat: '${version}'
-repositoryUrl: git@github.com:ptallen63/flow.git
+repositoryUrl: git@github.com:ptallen63/seafarer.git
 branches:
   - main
 plugins:
