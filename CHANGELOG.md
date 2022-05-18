@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/ptallen63/seafarer/compare/1.3.8...1.3.9) (2022-05-18)
+
+
+### Bug Fixes
+
+* fixing yml again ([02a9079](https://github.com/ptallen63/seafarer/commit/02a907906aa0b9386117d03560761cb7e4d4f940))
+
 ## [1.3.8](https://github.com/ptallen63/seafarer/compare/1.3.7...1.3.8) (2022-05-18)
 
 
