@@ -1,3 +1,10 @@
+## [1.3.11](https://github.com/ptallen63/seafarer/compare/1.3.10...1.3.11) (2022-05-18)
+
+
+### Bug Fixes
+
+* adding right perms ([5f28aff](https://github.com/ptallen63/seafarer/commit/5f28affec3b7dfbb288b55a8d96a052eac5d2ad9))
+
 ## [1.3.10](https://github.com/ptallen63/seafarer/compare/1.3.9...1.3.10) (2022-05-18)
 
 
