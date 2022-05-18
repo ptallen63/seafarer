@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Set package to False
-        run: npm set private=false
+        run: npx json -I -f package.json -e 'this.private=false'
       - name: Publish - NPM
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
