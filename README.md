@@ -1,5 +1,7 @@
 # ⛵ Seafarer
 
+🚧 **Disclaimer**: This project is in development and would love any feedback and how you wish it worked and what features to add. That being said, it is not meant for hardened production environments just yet.
+
 One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With  **Seafarer** only worry about what your flow is doing. Written with modern React **Seafarer** provides a simple hook to use throughout your application. You can only use the core logic engine of **Seafarer** or add your own screen components.
 
 - [⛵ Seafarer](#-seafarer)
