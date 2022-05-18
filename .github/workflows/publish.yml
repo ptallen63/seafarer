@@ -38,6 +38,8 @@ jobs:
         run: npm config set registry https://npm.pkg.github.com/
       - name: Github package registry authentication
         run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
+      - name: Set package name
+        run: npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
       - name: Publish - Github
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
