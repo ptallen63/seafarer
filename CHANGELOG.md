@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/ptallen63/seafarer/compare/1.3.11...1.3.12) (2022-05-18)
+
+
+### Bug Fixes
+
+* OMG there was a publigh command SMH ([bef0820](https://github.com/ptallen63/seafarer/commit/bef08202869dedeb0d6127b55ea3d859ce4ea499))
+
 ## [1.3.11](https://github.com/ptallen63/seafarer/compare/1.3.10...1.3.11) (2022-05-18)
 
 
