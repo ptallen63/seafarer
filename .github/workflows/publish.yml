@@ -22,11 +22,12 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
+      - name: Set package to False
+        run: npm set private=false
       - name: Publish - NPM
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm set private=false
         run: npm publish --access public
       - name: Set up Node.js
         uses: actions/setup-node@v3
