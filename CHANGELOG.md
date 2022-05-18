@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/ptallen63/seafarer/compare/1.3.6...1.3.7) (2022-05-18)
+
+
+### Bug Fixes
+
+* updating doc and forcing version ([dfc199a](https://github.com/ptallen63/seafarer/commit/dfc199a6e5c688562c4a6b2f4f2a45405cb85c80))
+
 ## [1.3.6](https://github.com/ptallen63/seafarer/compare/1.3.5...1.3.6) (2022-05-18)
 
 
