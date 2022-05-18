@@ -1,4 +1,4 @@
-name: Publish Library to NPM and Github
+name: Publish Library
 
 on:
   release:
@@ -29,19 +29,31 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version-file: '.nvmrc'
-      #     registry-url: https://npm.pkg.github.com/
-      # - name: Set the registry
-      #   run: npm config set registry https://npm.pkg.github.com/
-      # - name: Github package registry authentication
-      #   run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
-      # - name: Set package name
-      #   run: npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
-      # - name: Publish - Github
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npm publish
+  publish-github:
+    name: Publish Github Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - name: Install dependencies
+        run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
+      - name: Set package to False
+        run: npx json -I -f package.json -e 'this.private=false && npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
+      - name: Set the registry
+        run: npm config set registry https://npm.pkg.github.com/
+      - name: Github package registry authentication
+        run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
+      - name: Publish - Github
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
