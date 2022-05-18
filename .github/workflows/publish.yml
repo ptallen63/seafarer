@@ -34,6 +34,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: https://npm.pkg.github.com/
+      - name: Set the registry
+        run: npm config set registry https://npm.pkg.github.com/
       - name: Publish - Github
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
