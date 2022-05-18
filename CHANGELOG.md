@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/ptallen63/seafarer/compare/1.3.13...1.3.14) (2022-05-18)
+
+
+### Bug Fixes
+
+* getting some perms for ghr ([06aafc6](https://github.com/ptallen63/seafarer/commit/06aafc6ee3a2e3fc359143c2243d2abfface3242))
+
 ## [1.3.13](https://github.com/ptallen63/seafarer/compare/1.3.12...1.3.13) (2022-05-18)
 
 
