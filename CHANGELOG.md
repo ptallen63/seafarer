@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/ptallen63/seafarer/compare/1.3.3...1.3.4) (2022-05-18)
+
+
+### Bug Fixes
+
+* bump the version ([0f5d401](https://github.com/ptallen63/seafarer/commit/0f5d4013ed81fa64885cb9eab4f132018c14ea67))
+
 ## [1.3.3](https://github.com/ptallen63/seafarer/compare/1.3.2...1.3.3) (2022-05-18)
 
 
