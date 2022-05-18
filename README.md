@@ -7,6 +7,7 @@ One of the main purposes for this project is to make creating simple step flows 
 - [⛵ Seafarer](#-seafarer)
   - [Installation](#installation)
     - [NPM](#npm)
+    - [PNPM](#pnpm)
     - [Yarn](#yarn)
   - [Usage](#usage)
     - [`<FlowProvider/>`](#flowprovider)
@@ -26,6 +27,12 @@ One of the main purposes for this project is to make creating simple step flows 
 
 ```bash
 npm install --save seafarer
+```
+
+### PNPM
+
+```bash
+pnpm install --save seafarer
 ```
 
 ### Yarn
