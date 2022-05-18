@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/ptallen63/seafarer/compare/1.3.7...1.3.8) (2022-05-18)
+
+
+### Bug Fixes
+
+* trying to publish a package ([7c9b502](https://github.com/ptallen63/seafarer/commit/7c9b5024d8b9318114236995cdb42c939fde0d6d))
+
 ## [1.3.7](https://github.com/ptallen63/seafarer/compare/1.3.6...1.3.7) (2022-05-18)
 
 
