@@ -27,13 +27,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
-      name: Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           registry-url: https://npm.pkg.github.com/
-      name: Publish - Github
-      env:
-        GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm publish
+      - name: Publish - Github
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
