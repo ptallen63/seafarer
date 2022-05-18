@@ -33,6 +33,7 @@ npm install --save seafarer
 ```bash
 yarn add seafarer
 ```
+
 ## Usage
 
 ### `<FlowProvider/>`
