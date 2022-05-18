@@ -1,3 +1,10 @@
+## [1.3.18](https://github.com/ptallen63/seafarer/compare/1.3.17...1.3.18) (2022-05-18)
+
+
+### Bug Fixes
+
+* bad yml file ([4acd0c4](https://github.com/ptallen63/seafarer/commit/4acd0c43333af5742ebf587c24670c668fcb88b5))
+
 ## [1.3.17](https://github.com/ptallen63/seafarer/compare/1.3.16...1.3.17) (2022-05-18)
 
 
