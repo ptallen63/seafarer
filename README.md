@@ -2,6 +2,20 @@
 
 One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With <<INSTER NAME>> only worry about what your flow is doing. Written with modern React <<INSERT NAME>> provides a simple hook to use throughout your application. You can only use the core logic engine of <<INSERT NAME>> or add your own screen components.
 
+- [Flow (To Be named Later)](#flow-to-be-named-later)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [`<FlowProvider/>`](#flowprovider)
+    - [Flow Config](#flow-config)
+      - [Flow Settings](#flow-settings)
+      - [Example Config](#example-config)
+    - [Screens](#screens)
+      - [Screen Settings](#screen-settings)
+        - [Screen Input Types](#screen-input-types)
+    - [`UseFlow()`](#useflow)
+  - [Contributing](#contributing)
+  - [Project](#project)
+
 ## Installation
 
 <!-- TODO: Add installation instruction -->
@@ -100,11 +114,11 @@ const flowConfig = {
 
 ```
 
-## Screens
+### Screens
 
 This library uses the concept of a `Screen` as its main taxonomy. At the core it things in terms or what screen should I should and in what order.
 
-### Screen Settings
+#### Screen Settings
 
 ```ts
 export interface Screen {
@@ -134,7 +148,7 @@ export interface Screen {
 `validate` | `function` | `false` | This will run if you have `strictValidation` set to true in the flow settings and will run _before_ a `NEXT_SCREEN` action.
 
 
-#### Screen Input Types
+##### Screen Input Types
 
 ```ts
 export enum ScreenTypes {
