@@ -1,3 +1,10 @@
+## [1.3.17](https://github.com/ptallen63/seafarer/compare/1.3.16...1.3.17) (2022-05-18)
+
+
+### Bug Fixes
+
+* adding a ghr specific task ([54a0f73](https://github.com/ptallen63/seafarer/commit/54a0f73bc24bda1241936a2eb5a2f440e9e77d4a))
+
 ## [1.3.16](https://github.com/ptallen63/seafarer/compare/1.3.15...1.3.16) (2022-05-18)
 
 
