@@ -1,3 +1,10 @@
+## [1.3.19](https://github.com/ptallen63/seafarer/compare/1.3.18...1.3.19) (2022-05-18)
+
+
+### Bug Fixes
+
+* make valid json ([2d6a776](https://github.com/ptallen63/seafarer/commit/2d6a776f3812643e401677041a5853dc3f8517cd))
+
 ## [1.3.18](https://github.com/ptallen63/seafarer/compare/1.3.17...1.3.18) (2022-05-18)
 
 
