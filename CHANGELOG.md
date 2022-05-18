@@ -1,3 +1,11 @@
+## [1.3.6](https://github.com/ptallen63/seafarer/compare/1.3.5...1.3.6) (2022-05-18)
+
+
+### Bug Fixes
+
+* bad publish yml ([c74054a](https://github.com/ptallen63/seafarer/commit/c74054a53758ed8017f2b2051745aa9657def376))
+* setting up a publish step ([c14eac6](https://github.com/ptallen63/seafarer/commit/c14eac61f4dd1e458b8c3976f15cd9d885f3e70f))
+
 ## [1.3.5](https://github.com/ptallen63/seafarer/compare/1.3.4...1.3.5) (2022-05-18)
 
 
