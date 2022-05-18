@@ -27,7 +27,7 @@ jobs:
       - name: Publish - NPM
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -37,5 +37,5 @@ jobs:
       - name: Publish - Github
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish
