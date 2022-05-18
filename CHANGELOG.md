@@ -1,3 +1,10 @@
+## [1.3.13](https://github.com/ptallen63/seafarer/compare/1.3.12...1.3.13) (2022-05-18)
+
+
+### Bug Fixes
+
+* updating github registry ([0cc37dc](https://github.com/ptallen63/seafarer/commit/0cc37dce4cf75fb5224cf052fcedfa02ccb70681))
+
 ## [1.3.12](https://github.com/ptallen63/seafarer/compare/1.3.11...1.3.12) (2022-05-18)
 
 
