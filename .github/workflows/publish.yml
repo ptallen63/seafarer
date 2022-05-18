@@ -29,19 +29,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          registry-url: https://npm.pkg.github.com/
-      - name: Set the registry
-        run: npm config set registry https://npm.pkg.github.com/
-      - name: Github package registry authentication
-        run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
-      - name: Set package name
-        run: npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
-      - name: Publish - Github
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version-file: '.nvmrc'
+      #     registry-url: https://npm.pkg.github.com/
+      # - name: Set the registry
+      #   run: npm config set registry https://npm.pkg.github.com/
+      # - name: Github package registry authentication
+      #   run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
+      # - name: Set package name
+      #   run: npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
+      # - name: Publish - Github
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: npm publish
