@@ -47,7 +47,7 @@ jobs:
       - name: Install dependencies
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Set package to False
-        run: npx json -I -f package.json -e 'this.private=false && npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
+        run: npx json -I -f package.json -e 'this.private=false' && npx json -I -f package.json -e 'this.name=@ptallen63/seafarer'
       - name: Set the registry
         run: npm config set registry https://npm.pkg.github.com/
       - name: Github package registry authentication
