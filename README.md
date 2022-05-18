@@ -102,9 +102,48 @@ const flowConfig = {
 
 ## Screens
 
+This library uses the concept of a `Screen` as its main taxonomy. At the core it things in terms or what screen should I should and in what order.
+
 ### Screen Settings
 
+```ts
+export interface Screen {
+  name: string;
+  type: ScreenTypes;
+  component?: FC;
+  data?: {
+    [key: string]: unknown;
+  }
+  isValid?: boolean;
+  isDirty?: boolean;
+  shouldSkip?: (data?: FlowData, state?: State) => boolean;
+  validate?: (data?: FlowData) => boolean;
+
+}
+```
+
+| Property | Type | Required | Description |
+|-- |-- |-- |-- |
+| `name` | `string` | `true` | This the name of your screen. |
+| `type` | `enum` | `true` | See [Screen Input Types](#screen-input-types) |
+| `component` | `React.FC` | `false` | If you wanted to pass a component to be rendered. |
+| `data` | `object` | `false` | If you wanted to have data for this screen. For example lets say you wanted to add a `source` or `broswer`  field where the flow is running, you could add that here.
+|`isValid` | `boolean` | `false` | Is this screen valid. This setting can be updated programmatically as inputs or the state of the flow changes. |
+| `isDirty` | `boolean` | `false` | Has a user put input into this screen |
+`shouldSkip` | `function` | `false` | Runs logic to determine if this screen should be skipped. This function is run whenever a form navigation event is running like a `NEXT_SCREEN` or `PREVIOUS_SCREEN` |
+`validate` | `function` | `false` | This will run if you have `strictValidation` set to true in the flow settings and will run _before_ a `NEXT_SCREEN` action.
+
+
 #### Screen Input Types
+
+```ts
+export enum ScreenTypes {
+  INPUT = 'INPUT', // AN Input Screen
+  LOADING = 'LOADING', // A Loading or interstitial screen
+  SUBMIT = 'SUBMIT', // A submit screen
+  DISPLAY = 'DISPLAY', // Only an informational screen
+}
+```
 
 ### `UseFlow()`
 
@@ -140,4 +179,5 @@ function App() {
 
 
 ## Project
+
 [Github Project](https://github.com/users/ptallen63/projects/2/views/1?groupedBy%5BcolumnId%5D=4138946&visibleFields=%5B%22Title%22%2C%22Status%22%2C4139073%2C%22Linked+Pull+Requests%22%5D)
