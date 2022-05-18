@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/ptallen63/seafarer/compare/1.3.4...1.3.5) (2022-05-18)
+
+
+### Bug Fixes
+
+* changing the scope back to private ([547064b](https://github.com/ptallen63/seafarer/commit/547064be343da50006cab174c91da6e8285db16d))
+
 ## [1.3.4](https://github.com/ptallen63/seafarer/compare/1.3.3...1.3.4) (2022-05-18)
 
 
