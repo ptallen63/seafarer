@@ -1,9 +1,11 @@
-# Flow (To Be named Later)
+# Seafarer
 
-One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With <<INSTER NAME>> only worry about what your flow is doing. Written with modern React <<INSERT NAME>> provides a simple hook to use throughout your application. You can only use the core logic engine of <<INSERT NAME>> or add your own screen components.
+One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With  **Seafarer** only worry about what your flow is doing. Written with modern React **Seafarer** provides a simple hook to use throughout your application. You can only use the core logic engine of **Seafarer** or add your own screen components.
 
-- [Flow (To Be named Later)](#flow-to-be-named-later)
+- [Seafarer](#seafarer)
   - [Installation](#installation)
+    - [NPM](#npm)
+    - [Yarn](#yarn)
   - [Usage](#usage)
     - [`<FlowProvider/>`](#flowprovider)
     - [Flow Config](#flow-config)
@@ -18,8 +20,17 @@ One of the main purposes for this project is to make creating simple step flows 
 
 ## Installation
 
-<!-- TODO: Add installation instruction -->
+### NPM
 
+```bash
+npm install --save seafarer
+```
+
+### Yarn
+
+```bash
+yarn add seafarer
+```
 ## Usage
 
 ### `<FlowProvider/>`
@@ -36,7 +47,7 @@ Comes with a `<FlowProvider/>` to wrap the parent component where you want to us
 
 ### Flow Config
 
-When a intializing a flow, there are several options available to you.
+When a initializing a flow, there are several options available to you.
 
 ```typescript
 export interface FlowConfig {
