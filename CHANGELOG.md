@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/ptallen63/seafarer/compare/1.3.1...1.3.2) (2022-05-18)
+
+
+### Bug Fixes
+
+* changing the name ([213ef5a](https://github.com/ptallen63/seafarer/commit/213ef5a4bde593a8954c055a08c324561b5fcffc))
+
 ## [1.3.1](https://github.com/ptallen63/flow/compare/1.3.0...1.3.1) (2022-05-13)
 
 
