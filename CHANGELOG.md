@@ -1,3 +1,10 @@
+## [1.3.15](https://github.com/ptallen63/seafarer/compare/1.3.14...1.3.15) (2022-05-18)
+
+
+### Bug Fixes
+
+* chaning ghr package name ([88b9928](https://github.com/ptallen63/seafarer/commit/88b9928cad07b530cb735c82ef81fbc87e28a838))
+
 ## [1.3.14](https://github.com/ptallen63/seafarer/compare/1.3.13...1.3.14) (2022-05-18)
 
 
