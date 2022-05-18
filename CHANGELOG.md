@@ -1,3 +1,10 @@
+## [1.3.16](https://github.com/ptallen63/seafarer/compare/1.3.15...1.3.16) (2022-05-18)
+
+
+### Bug Fixes
+
+* live to fight another day ([1c19041](https://github.com/ptallen63/seafarer/commit/1c190412e4ea4f58be45207be762b955ce4eab1c))
+
 ## [1.3.15](https://github.com/ptallen63/seafarer/compare/1.3.14...1.3.15) (2022-05-18)
 
 
