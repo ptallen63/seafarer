@@ -1,3 +1,10 @@
+## [1.3.29](https://github.com/ptallen63/seafarer/compare/1.3.28...1.3.29) (2022-05-19)
+
+
+### Bug Fixes
+
+* renaming some interfaces ([2487b9e](https://github.com/ptallen63/seafarer/commit/2487b9e087f3fc1e17696b82de018906e61d50a3))
+
 ## [1.3.28](https://github.com/ptallen63/seafarer/compare/1.3.27...1.3.28) (2022-05-19)
 
 
