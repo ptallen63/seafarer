@@ -1,3 +1,12 @@
+## [1.3.26](https://github.com/ptallen63/seafarer/compare/1.3.25...1.3.26) (2022-05-19)
+
+
+### Bug Fixes
+
+* publish workflow was broken ([9112a60](https://github.com/ptallen63/seafarer/commit/9112a605b26a0ab1cef6113e5468eec90c1d932b))
+* publish workflow was still broken ([ac5a5a3](https://github.com/ptallen63/seafarer/commit/ac5a5a354e323b54810cab884ee012485fa52cec))
+* take out if conditional in build ([0e877e4](https://github.com/ptallen63/seafarer/commit/0e877e4731f9299d0bba0cd440081b8844e7e699))
+
 ## [1.3.25](https://github.com/ptallen63/seafarer/compare/1.3.24...1.3.25) (2022-05-19)
 
 
