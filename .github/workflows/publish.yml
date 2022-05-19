@@ -5,6 +5,27 @@ on:
     types: [published]
 
 jobs:
+  build:
+    - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Build App
+        run: npm run build
+      - name: Upload build
+        if: inputs.environment == 'production'
+        uses: actions/upload-artifact@v3
+        with:
+          name: lib
+          path: |
+            lib
+            !lib/**/*.md
+
   publish-npm:
     name: NPM
     runs-on: ubuntu-latest
@@ -24,9 +45,8 @@ jobs:
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Set package to False
         run: npx json -I -f package.json -e 'this.private=false'
-        # Make this reusuabel
-      - name: Build App
-        run: npm run build
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: Publish - NPM
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
@@ -55,8 +75,8 @@ jobs:
         run: npm config set registry https://npm.pkg.github.com/
       - name: Github package registry authentication
         run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
-      - name: Build App
-        run: npm run build
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: Publish - Github
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
