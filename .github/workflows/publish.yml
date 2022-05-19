@@ -24,6 +24,9 @@ jobs:
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Set package to False
         run: npx json -I -f package.json -e 'this.private=false'
+        # Make this reusuabel
+      - name: Build App
+        run: npm run build
       - name: Publish - NPM
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
@@ -52,6 +55,8 @@ jobs:
         run: npm config set registry https://npm.pkg.github.com/
       - name: Github package registry authentication
         run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.MY_GH_PAT }}
+      - name: Build App
+        run: npm run build
       - name: Publish - Github
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}

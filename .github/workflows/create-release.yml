@@ -23,6 +23,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: Install dependencies
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Release
