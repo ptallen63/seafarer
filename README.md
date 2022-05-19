@@ -220,6 +220,7 @@ function App() {
 
 ## Contributing
 
+Please see our [contributing guide](CONTRIBUTING.md).
 
 ## Project
 
