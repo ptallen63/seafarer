@@ -21,7 +21,6 @@ jobs:
       - name: Build App
         run: npm run build
       - name: Upload build
-        if: inputs.environment == 'production'
         uses: actions/upload-artifact@v3
         with:
           name: lib
