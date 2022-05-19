@@ -6,25 +6,28 @@ on:
 
 jobs:
   build:
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
-    - name: Install Node.js dependencies
-      run: npm ci
+      - name: Install Node.js dependencies
+        run: npm ci
 
-    - name: Build App
-      run: npm run build
-    - name: Upload build
-      if: inputs.environment == 'production'
-      uses: actions/upload-artifact@v3
-      with:
-        name: lib
-        path: |
-          lib
-          !lib/**/*.md
+      - name: Build App
+        run: npm run build
+      - name: Upload build
+        if: inputs.environment == 'production'
+        uses: actions/upload-artifact@v3
+        with:
+          name: lib
+          path: |
+            lib
+            !lib/**/*.md
 
   publish-npm:
     needs: [build]
