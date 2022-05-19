@@ -1,3 +1,10 @@
+## [1.3.28](https://github.com/ptallen63/seafarer/compare/1.3.27...1.3.28) (2022-05-19)
+
+
+### Bug Fixes
+
+* removing old code ([47cdf0e](https://github.com/ptallen63/seafarer/commit/47cdf0e814de8c279d76b5cbdcaf524fe120803f))
+
 ## [1.3.27](https://github.com/ptallen63/seafarer/compare/1.3.26...1.3.27) (2022-05-19)
 
 
