@@ -1,3 +1,10 @@
+## [1.3.21](https://github.com/ptallen63/seafarer/compare/1.3.20...1.3.21) (2022-05-19)
+
+
+### Bug Fixes
+
+* fix workflow error ([7c38e8e](https://github.com/ptallen63/seafarer/commit/7c38e8e67f9efe3ba2b1e41a63745c1dceb35e89))
+
 ## [1.3.20](https://github.com/ptallen63/seafarer/compare/1.3.19...1.3.20) (2022-05-19)
 
 
