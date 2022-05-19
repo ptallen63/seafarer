@@ -27,6 +27,7 @@ jobs:
             !lib/**/*.md
 
   publish-npm:
+    needs: [build]
     name: NPM
     runs-on: ubuntu-latest
     steps:
@@ -53,6 +54,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
   publish-github:
+    needs: [build]
     name: Github
     runs-on: ubuntu-latest
     steps:
