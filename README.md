@@ -26,13 +26,13 @@ One of the main purposes for this project is to make creating simple step flows 
 ### NPM
 
 ```bash
-npm install --save seafarer
+npm install --save @ptallen63/seafarer
 ```
 
 ### PNPM
 
 ```bash
-pnpm install --save seafarer
+pnpm install --save @ptallen63/seafarer
 ```
 
 ### Yarn
