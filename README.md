@@ -4,7 +4,7 @@
 ![Deployment workflow](https://github.com/ptallen63/seafarer/actions/workflows/deployment.yml/badge.svg)
 ![CodeQl workflow](https://github.com/ptallen63/seafarer/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Publish workflow](https://github.com/ptallen63/seafarer/actions/workflows/publish.yml/badge.svg)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 🚧 **Disclaimer**: This project is in development and would love any feedback and how you wish it worked and what features to add. That being said, it is not meant for hardened production environments just yet.
 
