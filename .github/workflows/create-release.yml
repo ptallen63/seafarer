@@ -1,6 +1,13 @@
 name: Create Release
 on:
   workflow_call:
+    secrets:
+      npm-token:
+        description: 'A npm usage token'
+        required: true
+      gh-token:
+        description: 'A github usage token'
+        required: true
 jobs:
   release:
     name: Create Release
@@ -20,6 +27,6 @@ jobs:
         run: HUSKY_SKIP_INSTALL=1 npm ci --ignore-scripts
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GH_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.gh-token }}
+          NPM_TOKEN: ${{ secrets.npm-token }}
         run: npx semantic-release

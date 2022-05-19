@@ -37,7 +37,6 @@
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
@@ -159,6 +158,9 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "husky": "^7.0.4",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "jsdom": "^19.0.0",
     "lint-staged": "^12.4.1",
     "web-vitals": "^2.1.4"
   }
