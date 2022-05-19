@@ -1,3 +1,10 @@
+## [1.3.27](https://github.com/ptallen63/seafarer/compare/1.3.26...1.3.27) (2022-05-19)
+
+
+### Bug Fixes
+
+* build step was not checking our repo ([7abc1f4](https://github.com/ptallen63/seafarer/commit/7abc1f48ab4cf03ff28d12b3499bb40c4a27127d))
+
 ## [1.3.26](https://github.com/ptallen63/seafarer/compare/1.3.25...1.3.26) (2022-05-19)
 
 
