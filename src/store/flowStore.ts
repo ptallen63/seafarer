@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 import { FC } from 'react';
 import { Action, ActionsParams } from '../../types/Actions';
-import { State, IbaseOptions } from '../../types/State';
+import { State, IBaseOptions } from '../../types/State';
 import pkg from '../../package.json';
 
 /**
@@ -207,12 +207,10 @@ export type FlowActions = {
  * @param dispatch
  * @param state
  */
-
-
-interface IupdateScreenHistoryOptions extends IbaseOptions {
+interface IUpdateScreenHistoryOptions extends IBaseOptions {
   record: ScreenHistoryRecord
 }
-function updateScreenHistory({ record, dispatch, state }: IupdateScreenHistoryOptions) {
+function updateScreenHistory({ record, dispatch, state }: IUpdateScreenHistoryOptions) {
   const newScreenHistory = state.screenHistory || [record];
   if (newScreenHistory) {
     newScreenHistory.push(record);
