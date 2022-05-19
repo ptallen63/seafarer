@@ -1,3 +1,10 @@
+## [1.3.23](https://github.com/ptallen63/seafarer/compare/1.3.22...1.3.23) (2022-05-19)
+
+
+### Bug Fixes
+
+* adding lib files and build step ([2390455](https://github.com/ptallen63/seafarer/commit/23904554db25693492d7fdfd606347894aa1c6c9))
+
 ## [1.3.22](https://github.com/ptallen63/seafarer/compare/1.3.21...1.3.22) (2022-05-19)
 
 
