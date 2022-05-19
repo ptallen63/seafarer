@@ -1,3 +1,10 @@
+## [1.3.24](https://github.com/ptallen63/seafarer/compare/1.3.23...1.3.24) (2022-05-19)
+
+
+### Bug Fixes
+
+* proper package entry ([000adc6](https://github.com/ptallen63/seafarer/commit/000adc6caf88bf1611d63319a24515588c1612cc))
+
 ## [1.3.23](https://github.com/ptallen63/seafarer/compare/1.3.22...1.3.23) (2022-05-19)
 
 
