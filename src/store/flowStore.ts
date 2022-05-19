@@ -89,7 +89,7 @@ export interface FlowSettings {
   // A flag to think about logging things to the console for debug perboses
   verbose?: boolean;
 
-  // current version of the flow - recieved from package JSON
+  // current version of the flow - received from package JSON
   version?: string;
 
   // Enforce validation before a screen can advance - defaults to true?

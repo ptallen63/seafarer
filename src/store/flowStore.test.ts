@@ -46,10 +46,10 @@ describe('Options Reducer', () => {
         mockOptions,
         {
           type: ActionTypes.NEXT_SCREEN,
-          index: mockOptions.currenScreenIndex + 1,
+          index: mockOptions.currentScreenIndex + 1,
         },
       );
-      expect(state.currenScreenIndex).toBe(mockOptions.currenScreenIndex + 1);
+      expect(state.currentScreenIndex).toBe(mockOptions.currentScreenIndex + 1);
     });
 
     test('Dont Increment if its not possible', () => {
@@ -78,7 +78,7 @@ describe('Options Reducer', () => {
           index: 1,
         },
       );
-      expect(state.currenScreenIndex).toBe(1);
+      expect(state.currentScreenIndex).toBe(1);
     });
     test('Dont go to a previous screen if you cant', () => {
       expect(previousScreen(-1)).toBe(undefined);

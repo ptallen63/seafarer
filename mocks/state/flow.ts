@@ -1,7 +1,7 @@
 export default {
     screens: [{ name: 'test', type: 'INPUT' }],
   screenHistory: [],
-  currenScreenIndex: 0,
+  currentScreenIndex: 0,
   previousScreenIndex: 0,
   data: {},
   settings: {
