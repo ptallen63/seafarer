@@ -1,3 +1,10 @@
+## [1.3.20](https://github.com/ptallen63/seafarer/compare/1.3.19...1.3.20) (2022-05-19)
+
+
+### Bug Fixes
+
+* testing deployment workflow ([6147272](https://github.com/ptallen63/seafarer/commit/61472723afd60536ac7c7fe40bccff5f1816487f))
+
 ## [1.3.19](https://github.com/ptallen63/seafarer/compare/1.3.18...1.3.19) (2022-05-18)
 
 
