@@ -49,11 +49,11 @@ jobs:
       - name: Upload build
         if: inputs.environment == 'production'
         uses: actions/upload-artifact@v3
-          with:
-            name: lib
-            path: |
-              lib
-              !lib/**/*.md
+        with:
+          name: lib
+          path: |
+            lib
+            !lib/**/*.md
 
   lint:
     name: Lint
