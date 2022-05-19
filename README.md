@@ -1,6 +1,7 @@
 # ⛵ Seafarer
 
 ![CI workflow](https://github.com/ptallen63/seafarer/actions/workflows/ci.yml/badge.svg)
+![Deployment workflow](https://github.com/ptallen63/seafarer/actions/workflows/deployment.yml/badge.svg)
 ![CodeQl workflow](https://github.com/ptallen63/seafarer/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Publish workflow](https://github.com/ptallen63/seafarer/actions/workflows/publish.yml/badge.svg)
 
