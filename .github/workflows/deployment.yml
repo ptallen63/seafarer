@@ -1,0 +1,10 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml@main

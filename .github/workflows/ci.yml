@@ -9,6 +9,13 @@ on:
   push:
     branches-ignore:
       - main
+  workflow_call:
+    inputs:
+      environment:
+        description: 'A env passed from the caller workflow'
+        default: 'development'
+        required: false
+        type: string
 jobs:
   build:
     name: Build
