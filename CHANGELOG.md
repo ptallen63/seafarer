@@ -1,3 +1,11 @@
+## [1.3.25](https://github.com/ptallen63/seafarer/compare/1.3.24...1.3.25) (2022-05-19)
+
+
+### Bug Fixes
+
+* unifying the name ([ee03e03](https://github.com/ptallen63/seafarer/commit/ee03e035e4175dd6c069cc0b45263357eddef2f7))
+* updating install instructions ([c2625df](https://github.com/ptallen63/seafarer/commit/c2625dfc9c35eda729bd2b619ae699ecc23ec029))
+
 ## [1.3.24](https://github.com/ptallen63/seafarer/compare/1.3.23...1.3.24) (2022-05-19)
 
 
