@@ -3,9 +3,9 @@
   "version": "1.3.30",
   "description": "A simple way to create multi step flows",
   "private": true,
-  "main": "./lib/cjs/index.js",
+  "main": "./lib/cjs/src/index.js",
   "module": "./lib/esm/src/index.js",
-  "types": "./lib/csj/index.d.ts",
+  "types": "./lib/csj/src/index.d.ts",
   "files": [
     "src",
     "lib",
