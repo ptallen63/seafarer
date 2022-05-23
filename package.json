@@ -67,9 +67,10 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:amd",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build:amd": "tsc --module amd --outDir lib --outFile lib/index.js --isolatedModules false",
     "start": "node scripts/start.js",
     "test": "node scripts/test.js",
     "test:ci": "CI=true node scripts/test.js --passWithNoTests",
