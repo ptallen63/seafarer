@@ -1,3 +1,11 @@
+## [1.3.32](https://github.com/ptallen63/seafarer/compare/1.3.31...1.3.32) (2022-05-23)
+
+
+### Bug Fixes
+
+* fixing the entry point ([47d5b5d](https://github.com/ptallen63/seafarer/commit/47d5b5d01f5853b5461b53b8a0feda4d59898f53))
+* fixing the path ([59b5a8c](https://github.com/ptallen63/seafarer/commit/59b5a8c822e5758729c11a4914af6293bfd4fbb9))
+
 ## [1.3.31](https://github.com/ptallen63/seafarer/compare/1.3.30...1.3.31) (2022-05-23)
 
 
