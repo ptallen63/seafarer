@@ -56,7 +56,7 @@ yarn add seafarer
 Comes with a `<FlowProvider/>` to wrap the parent component where you want to use the flow.
 
 ```tsx
-import { FlowProvider } from '@ptallen63/seafarer/lib/cjs/src/index';
+import { FlowProvider } from '@ptallen63/seafarer';
 
     <FlowProvider initialState={{
     /* Flow Config Data */
@@ -103,7 +103,7 @@ export interface FlowConfig {
 #### Example Config
 
 ```typescript
-import { ScreenTypes } from '@ptallen63/seafarer/lib/cjs/src/index'
+import { ScreenTypes } from '@ptallen63/seafarer'
 
 const flowConfig = {
 
