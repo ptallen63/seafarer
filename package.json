@@ -7,9 +7,9 @@
   "module": "lib/esm/src/index.js",
   "types": "lib/csj/src/index.d.ts",
   "files": [
-    "src",
-    "lib",
-    "lib/index.js"
+    "/src",
+    "/lib",
+    "/lib/index.js"
   ],
   "license": "MIT",
   "dependencies": {
