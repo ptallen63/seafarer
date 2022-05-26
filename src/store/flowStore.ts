@@ -19,7 +19,6 @@ import pkg from '../../package.json';
  * @returns boolean
  */
 const screenIndexIsValid = (index: number, screens: Screen[]) => {
-  console.log('screindexvalid', screens[index], screens[index] !== undefined);
   return screens[index] !== undefined;
 };
 
@@ -235,7 +234,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
       // check to see if index is valid
       if (nextIndex === -1) {
         // TODO set up error dispatching
-        return console.error('invalid index');
+        if (state.settings?.verbose) {
+          console.warn('screen index is invalid', { nextIndex });
+        }
+        return
       }
 
       dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex });
@@ -253,7 +255,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
     previousScreen() {
       const prevIndex = getPrevIndex(state.data, state);
       if (prevIndex === -1) {
-        return console.error('invalid index');
+        if (state.settings?.verbose) {
+          console.warn('screen index is invalid', { prevIndex });
+        }
+        return
       }
 
       dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex });
@@ -281,7 +286,10 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
       // check to see if index is valid
       if (nextIndex === -1) {
         // TODO set up error dispatching
-        return console.error('invalid index');
+        if (state.settings?.verbose) {
+          console.warn('screen index is invalid', { nextIndex });
+        }
+        return;
       }
 
       dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex });
