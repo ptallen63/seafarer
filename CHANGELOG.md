@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/ptallen63/seafarer/compare/1.4.2...1.5.0) (2022-05-29)
+
+
+### Features
+
+* adding a enable dev tools setting ([#25](https://github.com/ptallen63/seafarer/issues/25)) ([4b6cd76](https://github.com/ptallen63/seafarer/commit/4b6cd76de17603aa1939105491ba2e94aac096ef))
+
 ## [1.4.2](https://github.com/ptallen63/seafarer/compare/1.4.1...1.4.2) (2022-05-29)
 
 

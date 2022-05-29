@@ -1,6 +1,6 @@
 {
   "name": "@ptallen63/seafarer",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "A simple way to create multi step flows",
   "private": true,
   "main": "lib/cjs/src/index.js",
