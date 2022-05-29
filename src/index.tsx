@@ -61,7 +61,10 @@ export const FlowProvider = ({
     baseState,
   );
 
-  const { dispatch } = withDevTools(baseDispatch, reducer, baseState);
+
+  const { dispatch: devDispatch } = withDevTools(baseDispatch, reducer, baseState);
+
+  const dispatch = config.settings?.enableDevTools ? devDispatch : baseDispatch;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const value: TFlowContext = useMemo(() => [state, dispatch], [state]);

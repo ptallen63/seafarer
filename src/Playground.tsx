@@ -22,6 +22,7 @@ root.render(
       settings: {
         strictValidation: true,
         verbose: true,
+        enableDevTools: true,
       },
       screens: [
         {

@@ -93,6 +93,9 @@ export interface FlowSettings {
 
   // Enforce validation before a screen can advance - defaults to true?
   strictValidation?: boolean
+
+  // Use the withDevTools hook, false by default
+  enableDevTools?: boolean
 }
 
 export type ScreenHistoryRecord = {
@@ -129,6 +132,7 @@ export const defaultState: IFlowState = {
     verbose: false,
     version: pkg.version,
     strictValidation: false,
+    enableDevTools: false,
   },
 };
 
