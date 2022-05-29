@@ -138,7 +138,7 @@ const flowConfig = {
         },
 
       ],
-      startScreenIndex: 0,
+      startIndex: 0,
       onSubmit(data, state) {
         console.log('submit', { data, state });
       },
