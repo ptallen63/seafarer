@@ -298,7 +298,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
       const record = { index: nextIndex, name: state.screens[nextIndex].name };
       updateScreenHistory({ record, dispatch, state });
 
-      // Fire a lifecyle function if it is present
+      // Fire a lifecycle function if it is present
       if (state.onSave) state.onSave(state.data, state);
     },
     submit() {
