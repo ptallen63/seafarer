@@ -78,7 +78,8 @@
     "test:ci": "CI=true node scripts/test.js --passWithNoTests",
     "type-check": "tsc -p ./tsconfig.json --noEmit",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "postinstall": "npx husky install"
   },
   "browserslist": {
     "production": [
