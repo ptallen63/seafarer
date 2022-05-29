@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/ptallen63/seafarer/compare/1.3.32...1.4.0) (2022-05-29)
+
+
+### Bug Fixes
+
+* changing the variable ([835d1f2](https://github.com/ptallen63/seafarer/commit/835d1f2b900919425f4a7d55432392e31ea8f335))
+
+
+### Features
+
+* accpeting the initalstate as config ([3423ceb](https://github.com/ptallen63/seafarer/commit/3423ceb71d89a6b7b9009f7014c087d3669d913a))
+* adding different logging ([0a1ec87](https://github.com/ptallen63/seafarer/commit/0a1ec8720a99da0fdc79f97f5bd67fe18870ea20))
+
 ## [1.3.32](https://github.com/ptallen63/seafarer/compare/1.3.31...1.3.32) (2022-05-23)
 
 
