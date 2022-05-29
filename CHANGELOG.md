@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/ptallen63/seafarer/compare/1.4.1...1.4.2) (2022-05-29)
+
+
+### Bug Fixes
+
+* husky postinstall was a bad idea ([f64b7d3](https://github.com/ptallen63/seafarer/commit/f64b7d30e800887ad8f8b35f94af4e4c4dde0052))
+
 ## [1.4.1](https://github.com/ptallen63/seafarer/compare/1.4.0...1.4.1) (2022-05-29)
 
 
