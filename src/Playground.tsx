@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+//Test Screen components
 const Screen1 = () => <div> Screen 1 </div>;
 const Screen2 = () => <div>Screen 2</div>;
 const Screen3 = () => <div>Screen 3</div>;
