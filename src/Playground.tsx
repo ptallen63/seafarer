@@ -47,7 +47,6 @@ root.render(
         { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT, isValid: true },
 
       ],
-      currentScreenIndex: 0,
       onSubmit(data, state) {
         console.log('submit', { data, state });
       },

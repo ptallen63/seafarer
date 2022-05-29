@@ -1,5 +1,5 @@
 import { Action, Actions } from './Actions';
-import { IFlowState } from '../src/store/flowStore';
+import { IFlowState, IFlowConfig } from '../src/store/flowStore';
 
 
 export type State = & IFlowState;
@@ -15,7 +15,7 @@ export type UseFlowType = {
 };
 
 export type FlowProviderProps = {
-  initialState: State;
+  initialState: IFlowConfig;
   children: React.ReactNode;
 };
 

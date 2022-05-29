@@ -237,7 +237,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
         if (state.settings?.verbose) {
           console.warn('screen index is invalid', { nextIndex });
         }
-        return
+        return;
       }
 
       dispatch({ type: ActionTypes.NEXT_SCREEN, index: nextIndex });
@@ -258,7 +258,7 @@ export function actions({ dispatch, state }: ActionsParams): FlowActions {
         if (state.settings?.verbose) {
           console.warn('screen index is invalid', { prevIndex });
         }
-        return
+        return;
       }
 
       dispatch({ type: ActionTypes.PREVIOUS_SCREEN, index: prevIndex });
