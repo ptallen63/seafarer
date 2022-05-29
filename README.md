@@ -99,6 +99,7 @@ export interface FlowConfig {
 | -- | -- | -- |-- |
 |`verbose` | 'false' | `false` | Provide extra console output base for screen actions |
 |`strictValidation` | 'true' | `false` | A screen must have a `isValid` set to `true` for the flow to advance |
+|`enableDevTools` | 'false' | `false` | This will send actions through Redux devtools |
 
 #### Example Config
 
@@ -137,7 +138,7 @@ const flowConfig = {
         },
 
       ],
-      startScreenIndex: 0,
+      startIndex: 0,
       onSubmit(data, state) {
         console.log('submit', { data, state });
       },
