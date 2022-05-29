@@ -15,7 +15,7 @@ export type UseFlowType = {
 };
 
 export type FlowProviderProps = {
-  initialState: IFlowConfig;
+  config: IFlowConfig;
   children: React.ReactNode;
 };
 

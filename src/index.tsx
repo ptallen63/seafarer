@@ -31,13 +31,13 @@ const defaultState: State = {
 };
 
 export const FlowProvider = ({
-  initialState,
+  config,
   ...props
 }: FlowProviderProps): ReactElement => {
 
   const baseState = {
     ...defaultState,
-    ...initialState,
+    ...config,
   };
 
   // TODO: this should be cleaned up, is this the right place?

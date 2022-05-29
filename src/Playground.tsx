@@ -19,7 +19,7 @@ const Screen3 = () => <div>Screen 3</div>;
 
 root.render(
   <React.StrictMode>
-    <FlowProvider initialState={{
+    <FlowProvider config={{
       data: {
         bar: 'baz',
       },
