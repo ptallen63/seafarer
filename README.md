@@ -58,7 +58,7 @@ Comes with a `<FlowProvider/>` to wrap the parent component where you want to us
 ```tsx
 import { FlowProvider } from '@ptallen63/seafarer';
 
-    <FlowProvider initialState={{
+    <FlowProvider config={{
     /* Flow Config Data */
     }}>
       <App />
