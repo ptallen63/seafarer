@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/ptallen63/seafarer/compare/1.4.0...1.4.1) (2022-05-29)
+
+
+### Bug Fixes
+
+* adding Comment to test ([5c605d9](https://github.com/ptallen63/seafarer/commit/5c605d9e901555b2813aa17f23a14532e75845f5))
+* cleaning up example ([4caba1b](https://github.com/ptallen63/seafarer/commit/4caba1b58944c1209a18b571f8d3a1ae5505c723))
+
 # [1.4.0](https://github.com/ptallen63/seafarer/compare/1.3.32...1.4.0) (2022-05-29)
 
 
