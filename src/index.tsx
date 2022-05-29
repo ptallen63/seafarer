@@ -26,10 +26,16 @@ const FlowContext = createContext<TFlowContext>([
   () => console.log('dispatcher not set up'),
 ]);
 
+// Default state as set by the flowStore
 const defaultState: State = {
   ...store.defaultState(),
 };
 
+/**
+ * Main provider to be used. Must be present for the useFlow hook to work properly
+ *
+ * ex: <FlowProvider config={... someConfig }> <App/> </FlowProvider>
+ */
 export const FlowProvider = ({
   config,
   ...props
@@ -64,6 +70,12 @@ export const FlowProvider = ({
   return <FlowContext.Provider value={ value } {...props } />;
 };
 
+/**
+ * Main hook that exposes the flow state and the flow actionsn
+ *
+ * ex const { flowState, flowActions } = useFlow()
+ *
+ */
 export const useFlow = (): UseFlowType => {
   if (FlowContext === undefined) {
     throw new Error('useFlow must be used within a FlowProvider');
