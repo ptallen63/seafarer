@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/ptallen63/seafarer/compare/1.5.1...1.5.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* adding an author ([4faafed](https://github.com/ptallen63/seafarer/commit/4faafed5d8a0c03c542fdcb20fb188722e06a1f7))
+
 ## [1.5.1](https://github.com/ptallen63/seafarer/compare/1.5.0...1.5.1) (2022-06-01)
 
 
