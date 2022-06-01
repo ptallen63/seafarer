@@ -32,8 +32,8 @@ describe('Options Reducer', () => {
     const { result } = renderHook(() => useReducer(reducer, {
       ...mockOptions,
       screens: [
-        { name: 'sreen 1' },
-        { name: 'sreen 3' },
+        { name: 'screen 1' },
+        { name: 'screen 3' },
       ],
     }));
     const [state] = result.current;
