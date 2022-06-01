@@ -8,7 +8,7 @@
 ![package version](https://img.shields.io/github/package-json/v/ptallen63/seafarer)
 ![npm package version](https://img.shields.io/npm/v/@ptallen63/seafarer)
 
-🚧 **Disclaimer**: This project is in development and would love any feedback and how you wish it worked and what features to add. That being said, it is not meant for hardened production environments just yet.
+🚧 **Disclaimer**: This project is in development and I just a proof of concept at this point. I would love any feedback and how you wish it worked and what features to add. That being said, it is not meant for hardened production environments just yet.
 
 One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With  **Seafarer** only worry about what your flow is doing. Written with modern React **Seafarer** provides a simple hook to use throughout your application. You can only use the core logic engine of **Seafarer** or add your own screen components.
 
@@ -173,7 +173,7 @@ export interface Screen {
 | `name` | `string` | `true` | This the name of your screen. |
 | `type` | `enum` | `true` | See [Screen Input Types](#screen-input-types) |
 | `component` | `React.FC` | `false` | If you wanted to pass a component to be rendered. |
-| `data` | `object` | `false` | If you wanted to have data for this screen. For example lets say you wanted to add a `source` or `broswer`  field where the flow is running, you could add that here.
+| `data` | `object` | `false` | If you wanted to have data for this screen. For example lets say you wanted to add a `source` or `browser`  field where the flow is running, you could add that here.
 |`isValid` | `boolean` | `false` | Is this screen valid. This setting can be updated programmatically as inputs or the state of the flow changes. |
 | `isDirty` | `boolean` | `false` | Has a user put input into this screen |
 `shouldSkip` | `function` | `false` | Runs logic to determine if this screen should be skipped. This function is run whenever a form navigation event is running like a `NEXT_SCREEN` or `PREVIOUS_SCREEN` |
@@ -194,7 +194,7 @@ export enum ScreenTypes {
 ### `UseFlow()`
 
 ```tsx
-import { useFlow } from 'TO BE NAME LATER)';
+import { useFlow } from '@ptallen63/seafarer';
 
 function App() {
 
@@ -203,7 +203,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>HEllow WOrld</div>
+      <div>Hello, World</div>
 
       <pre>
         {JSON.stringify(currentScreen, null, 2)}
