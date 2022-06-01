@@ -47,14 +47,18 @@ export class Screen {
   // a property to see if the screen as been touched
   isDirty?: boolean;
 
+  // Flow Data
+  data?: FlowData;
+
   constructor(private settings: IScreen) {
     this.name = settings.name;
     this.type = settings.type;
     this.shouldSkip = settings.shouldSkip;
-    this.isValid = settings.isValid;
-    this.isDirty = settings.isDirty;
+    this.isValid = settings.isValid || true;
+    this.isDirty = settings.isDirty || false;
     this.validate = settings.validate;
     this.component = this.withProps(settings.component);
+    this.data = settings.data;
   }
 
   /**

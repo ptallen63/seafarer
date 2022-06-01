@@ -174,7 +174,7 @@ export interface Screen {
 | `type` | `enum` | `true` | See [Screen Input Types](#screen-input-types) |
 | `component` | `React.FC` | `false` | If you wanted to pass a component to be rendered. |
 | `data` | `object` | `false` | If you wanted to have data for this screen. For example lets say you wanted to add a `source` or `browser`  field where the flow is running, you could add that here.
-|`isValid` | `boolean` | `false` | Is this screen valid. This setting can be updated programmatically as inputs or the state of the flow changes. |
+|`isValid` | `boolean` | `false` | defaults to `true` Is this screen valid. This setting can be updated programmatically as inputs or the state of the flow changes. |
 | `isDirty` | `boolean` | `false` | Has a user put input into this screen |
 `shouldSkip` | `function` | `false` | Runs logic to determine if this screen should be skipped. This function is run whenever a form navigation event is running like a `NEXT_SCREEN` or `PREVIOUS_SCREEN` |
 `validate` | `function` | `false` | This will run if you have `strictValidation` set to true in the flow settings and will run _before_ a `NEXT_SCREEN` action.
