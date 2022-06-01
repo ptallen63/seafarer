@@ -60,7 +60,6 @@ export const FlowProvider = ({
   }
 
   const reducer = store.reducer();
-  //@ts-ignore
   const [state, baseDispatch]: [State, Dispatch] = useReducer(
     reducer,
     baseState,
