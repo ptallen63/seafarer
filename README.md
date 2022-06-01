@@ -156,7 +156,7 @@ This library uses the concept of a `Screen` as its main taxonomy. At the core it
 export interface Screen {
   name: string;
   type: ScreenTypes;
-  component?: FC;
+  component?: ScreenComponent;
   data?: {
     [key: string]: unknown;
   }
