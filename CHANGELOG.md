@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/ptallen63/seafarer/compare/1.5.0...1.5.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* update some typo in readme ([0a329b4](https://github.com/ptallen63/seafarer/commit/0a329b44adc25612bda1b698edea167ebe454bfc))
+
 # [1.5.0](https://github.com/ptallen63/seafarer/compare/1.4.2...1.5.0) (2022-05-29)
 
 
