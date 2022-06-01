@@ -15,10 +15,10 @@ import {
   UseFlowType,
 } from '../types/State';
 import { withDevTools } from './utils/withDevtools';
-import * as FlowStore from './store/flowStore';
+import { Screen } from './services/screen';
+export * from './services/screen';
 
-// Export Screen types so they can be used
-export const ScreenTypes = FlowStore.ScreenTypes;
+
 
 const FlowContext = createContext<TFlowContext>([
   {} as State,
@@ -41,9 +41,13 @@ export const FlowProvider = ({
   ...props
 }: FlowProviderProps): ReactElement => {
 
+
   const baseState = {
     ...defaultState,
     ...config,
+    screens: config.screens.map(s => {
+      return new Screen(s);
+    }),
   };
 
   // TODO: this should be cleaned up, is this the right place?
