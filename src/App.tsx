@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>HEllow WOrld</div>
+      <div>Hello, World</div>
       {/* <CurrentScreenComponent/> */}
       <pre>
         {JSON.stringify(currentScreen, null, 2)}

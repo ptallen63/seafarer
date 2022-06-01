@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-shadow */
-import { FC } from 'react';
 import { Action, ActionsParams } from '../../types/Actions';
 import { State, IBaseOptions } from '../../types/State';
 import pkg from '../../package.json';
-import { IScreen, ScreenTypes, Screen } from '../services/screen';
+import { IScreen, Screen } from '../services/screen';
 
 /**
  * ===================================
@@ -42,6 +40,7 @@ const getNextIndex = (data: FlowData, state: State, index?: number) => {
 
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getPrevIndex = (data: FlowData, state: State, index?: number) => {
   let prevIndex = state.currentScreenIndex - 1;
   const previousScreen = state.screens[prevIndex];
@@ -66,7 +65,7 @@ export type FlowData = {
 };
 
 export interface FlowSettings {
-  // A flag to think about logging things to the console for debug perboses
+  // A flag to think about logging things to the console for debug purposes
   verbose?: boolean;
 
   // current version of the flow - received from package JSON
