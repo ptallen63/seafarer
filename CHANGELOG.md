@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/ptallen63/seafarer/compare/1.5.2...1.6.0) (2022-06-01)
+
+
+### Features
+
+* bumping the feature of adding a screen ([704e072](https://github.com/ptallen63/seafarer/commit/704e0720e0a345124853dd9fa0f193cdfcb0c9d3))
+
 ## [1.5.2](https://github.com/ptallen63/seafarer/compare/1.5.1...1.5.2) (2022-06-01)
 
 
