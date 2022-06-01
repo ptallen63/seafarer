@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/ptallen63/seafarer/compare/1.6.0...1.7.0) (2022-06-01)
+
+
+### Features
+
+* adding some tests and defaults ([#28](https://github.com/ptallen63/seafarer/issues/28)) ([b4de323](https://github.com/ptallen63/seafarer/commit/b4de323407f6506a1d53729943ec685e34e10120))
+
 # [1.6.0](https://github.com/ptallen63/seafarer/compare/1.5.2...1.6.0) (2022-06-01)
 
 
