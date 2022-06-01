@@ -19,7 +19,7 @@ import { IScreen, ScreenTypes, Screen } from '../services/screen';
  * @param screens
  * @returns boolean
  */
-const screenIndexIsValid = (index: number, screens: IScreen[]) => {
+const screenIndexIsValid = (index: number, screens: Screen[]) => {
   return screens[index] !== undefined;
 };
 

@@ -6,6 +6,7 @@ function App() {
 
   const { flowState, flowActions } = useFlow();
   const currentScreen = flowState.screens[flowState.currentScreenIndex];
+  // const CurrentScreenComponent = currentScreen.component;
 
   return (
     <div className="App">

@@ -5,7 +5,8 @@ import { jest } from '@jest/globals';
 import { renderHook } from '@testing-library/react';
 import { State } from '../../types/State';
 import mockOptions from '../../mocks/state/flow';
-import { ActionTypes, reducer, defaultState, actions, ScreenTypes } from './flowStore';
+import { ActionTypes, reducer, defaultState, actions } from './flowStore';
+import { ScreenTypes  } from '../services/screen';
 
 describe('FlowStore Default State', () => {
   test('Sanity', () => {
