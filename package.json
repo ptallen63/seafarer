@@ -1,7 +1,7 @@
 {
   "name": "@ptallen63/seafarer",
-  "version": "1.5.0",
   "author": "Paul Allen",
+  "version": "1.5.1",
   "description": "A simple way to create multi step flows",
   "private": true,
   "main": "lib/cjs/src/index.js",
