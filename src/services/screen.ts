@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { FlowData } from '../store/flowStore';
 import { State } from '../../types/State';
 
@@ -9,10 +8,12 @@ export enum ScreenTypes {
   DISPLAY = 'DISPLAY',
 }
 
+export type ScreenComp = React.FC<Screen>;
+
 export interface IScreen {
   name: string;
   type: ScreenTypes;
-  component?: FC;
+  component?: ScreenComp;
   data?: {
     [key: string]: unknown;
   }
@@ -29,9 +30,9 @@ export class Screen {
 
   type: ScreenTypes;
 
-  component?: FC<IScreen> | undefined;
+  component?: ScreenComp | undefined;
 
-  shouldSkip?: () => boolean;
+  shouldSkip?: (data?: FlowData, state?: State) => boolean;
 
   validate?: (data: FlowData) => boolean;
 
@@ -49,7 +50,7 @@ export class Screen {
     this.component = this.withProps(settings.component);
   }
 
-  private withProps(WrappedScreenComp: FC | undefined) {
+  private withProps(WrappedScreenComp: ScreenComp | undefined) {
     if (!WrappedScreenComp) return;
 
     WrappedScreenComp.defaultProps = this.settings;

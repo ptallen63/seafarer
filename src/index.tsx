@@ -15,10 +15,10 @@ import {
   UseFlowType,
 } from '../types/State';
 import { withDevTools } from './utils/withDevtools';
-import { ScreenTypes as _ScreenTypes, Screen } from './services/screen';
+import { Screen } from './services/screen';
+export * from './services/screen';
 
-// Export Screen types so they can be used
-export const ScreenTypes = _ScreenTypes;
+
 
 const FlowContext = createContext<TFlowContext>([
   {} as State,
