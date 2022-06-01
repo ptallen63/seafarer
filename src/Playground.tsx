@@ -9,7 +9,8 @@ const root = ReactDOM.createRoot(
 );
 
 //Test Screen components
-const Screen1 = () => <div> Screen 1 </div>;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+const Screen1 = (props) => <div> Screen 1 {props.name} <pre>{JSON.stringify(props, null, 2)}</pre> </div>;
 const Screen2 = () => <div>Screen 2</div>;
 const Screen3 = () => <div>Screen 3</div>;
 
