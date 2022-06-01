@@ -8,12 +8,12 @@ export enum ScreenTypes {
   DISPLAY = 'DISPLAY',
 }
 
-export type ScreenComp = React.FC<Screen>;
+export type ScreenComponent = React.FC<Screen>;
 
 export interface IScreen {
   name: string;
   type: ScreenTypes;
-  component?: ScreenComp;
+  component?: ScreenComponent;
   data?: {
     [key: string]: unknown;
   }
@@ -26,18 +26,25 @@ export interface IScreen {
 
 
 export class Screen {
+  // Actual name of the screen ex: screen-1
   name: string;
 
+  // Not really logic right now, but is an enum
   type: ScreenTypes;
 
-  component?: ScreenComp | undefined;
+  // Actual screen component used if you wanted to render a component
+  component?: ScreenComponent | undefined;
 
+  // A function that says if you should skip that screen and go to the next
   shouldSkip?: (data?: FlowData, state?: State) => boolean;
 
+  /// A function that will run if you wanted to have validate logic run against the screen
   validate?: (data: FlowData) => boolean;
 
+  // a property to see if the screen is good or not
   isValid?: boolean;
 
+  // a property to see if the screen as been touched
   isDirty?: boolean;
 
   constructor(private settings: IScreen) {
@@ -50,7 +57,12 @@ export class Screen {
     this.component = this.withProps(settings.component);
   }
 
-  private withProps(WrappedScreenComp: ScreenComp | undefined) {
+  /**
+   * Takes in a component and add the screen settings as props to it.
+   * @param WrappedScreenComp the
+   * @returns
+   */
+  private withProps(WrappedScreenComp: ScreenComponent | undefined) {
     if (!WrappedScreenComp) return;
 
     WrappedScreenComp.defaultProps = this.settings;

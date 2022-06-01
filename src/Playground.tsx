@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import { FlowProvider, ScreenTypes, ScreenComp } from '.';
+import { FlowProvider, ScreenTypes, ScreenComponent } from '.';
 
 
 const root = ReactDOM.createRoot(
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 
 //Test Screen components
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-const Screen1:ScreenComp = (props) => <div> Screen 1 {props.name} <pre>{JSON.stringify(props, null, 2)}</pre> </div>;
+const Screen1:ScreenComponent = (props) => <div> Screen 1 {props.name} <pre>{JSON.stringify(props, null, 2)}</pre> </div>;
 const Screen2 = () => <div>Screen 2</div>;
 const Screen3 = () => <div>Screen 3</div>;
 
