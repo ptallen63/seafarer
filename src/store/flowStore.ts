@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Action, ActionsParams } from '../../types/Actions';
 import { State, IBaseOptions } from '../../types/State';
 import pkg from '../../package.json';
+import { IScreen, ScreenTypes, Screen } from '../services/screen';
 
 /**
  * ===================================
@@ -18,7 +19,7 @@ import pkg from '../../package.json';
  * @param screens
  * @returns boolean
  */
-const screenIndexIsValid = (index: number, screens: Screen[]) => {
+const screenIndexIsValid = (index: number, screens: IScreen[]) => {
   return screens[index] !== undefined;
 };
 
@@ -60,26 +61,6 @@ const getPrevIndex = (data: FlowData, state: State, index?: number) => {
  * ===================================
  */
 
-export enum ScreenTypes {
-  INPUT = 'INPUT',
-  LOADING = 'LOADING',
-  SUBMIT = 'SUBMIT',
-  DISPLAY = 'DISPLAY',
-}
-
-export interface Screen {
-  name: string;
-  type: ScreenTypes;
-  component?: FC;
-  data?: {
-    [key: string]: unknown;
-  }
-  isValid?: boolean;
-  isDirty?: boolean;
-  shouldSkip?: (data?: FlowData, state?: State) => boolean;
-  validate?: (data?: FlowData) => boolean;
-
-}
 export type FlowData = {
   [key: string]: unknown
 };
@@ -106,7 +87,7 @@ export type ScreenHistoryRecord = {
 
 export interface IFlowConfig {
   startingScreenIndex?: number,
-  screens: Screen[];
+  screens: IScreen[];
   data?: FlowData;
   settings?: FlowSettings;
   onSubmit?: (data?: FlowData, state?: State) => void
@@ -115,8 +96,9 @@ export interface IFlowConfig {
   onSave?: (data?: FlowData, state?: State) => void
 }
 
-export interface IFlowState extends IFlowConfig {
-  data: FlowData
+export interface IFlowState extends Omit<IFlowConfig, 'screens'> {
+  screens: Screen[];
+  data: FlowData;
   currentScreenIndex: number;
   previousScreenIndex?: number;
   screenHistory?: ScreenHistoryRecord[];
@@ -340,7 +322,13 @@ export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case ActionTypes.INIT_FLOW:
       const currentScreenIndex = action.config.startingScreenIndex || 0;
-      return { ...state, ...action.config, currentScreenIndex };
+      const newConfig = {
+        ...action.config,
+        screens: action.config.screens.map(s => {
+          return new Screen(s);
+        }),
+      };
+      return { ...state, ...newConfig, currentScreenIndex };
     case ActionTypes.NEXT_SCREEN:
       return { ...state, currentScreenIndex: action.index };
     case ActionTypes.PREVIOUS_SCREEN:
