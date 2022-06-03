@@ -74,6 +74,9 @@ export class Screen {
   }
 
   public set isValid(val: boolean) {
+    if (!val) {
+      throw Error('Invalid value from IsValid');
+    }
     this._isValid = val;
   }
 
