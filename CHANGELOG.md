@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/ptallen63/seafarer/compare/1.7.1...1.7.2) (2022-06-03)
+
+
+### Bug Fixes
+
+* adds getters to the screen class ([#32](https://github.com/ptallen63/seafarer/issues/32)) ([99faf73](https://github.com/ptallen63/seafarer/commit/99faf736b0f5a88461c6db0ccad405ca4eb42a3e))
+
 ## [1.7.1](https://github.com/ptallen63/seafarer/compare/1.7.0...1.7.1) (2022-06-03)
 
 
