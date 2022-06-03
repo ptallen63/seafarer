@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/ptallen63/seafarer/compare/1.7.0...1.7.1) (2022-06-03)
+
+
+### Bug Fixes
+
+* updating the readme and bumping a version ([40e9750](https://github.com/ptallen63/seafarer/commit/40e9750dc806f7d957390e8d707a81d35d8391ed))
+
 # [1.7.0](https://github.com/ptallen63/seafarer/compare/1.6.0...1.7.0) (2022-06-01)
 
 
