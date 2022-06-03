@@ -169,6 +169,8 @@ export interface Screen {
 
 ##### Screen Input Types
 
+If you think there should additional screen types or a way to add your own screen types, then consider [contributing](#contributing) :)
+
 ```ts
 export enum ScreenTypes {
   INPUT = 'INPUT', // AN Input Screen
