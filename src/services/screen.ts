@@ -27,38 +27,81 @@ export interface IScreen {
 
 export class Screen {
   // Actual name of the screen ex: screen-1
-  name: string;
+  private _name: string;
 
   // Not really logic right now, but is an enum
-  type: ScreenTypes;
+  private _type: ScreenTypes;
 
   // Actual screen component used if you wanted to render a component
-  component?: ScreenComponent | undefined;
+  private _component?: ScreenComponent | undefined;
 
   // A function that says if you should skip that screen and go to the next
-  shouldSkip?: (data?: FlowData, state?: State) => boolean;
+  private _shouldSkip?: (data?: FlowData, state?: State) => boolean;
 
   /// A function that will run if you wanted to have validate logic run against the screen
-  validate?: (data: FlowData) => boolean;
+  private _validate?: (data: FlowData) => boolean;
 
   // a property to see if the screen is good or not
-  isValid?: boolean;
+  private _isValid: boolean;
 
   // a property to see if the screen as been touched
-  isDirty?: boolean;
+  private _isDirty: boolean;
 
   // Flow Data
-  data?: FlowData;
+  private _data: FlowData;
 
   constructor(private settings: IScreen) {
-    this.name = settings.name;
-    this.type = settings.type;
-    this.shouldSkip = settings.shouldSkip;
-    this.isValid = settings.isValid || true;
-    this.isDirty = settings.isDirty || false;
-    this.validate = settings.validate;
-    this.component = this.withProps(settings.component);
-    this.data = settings.data;
+    this._name = settings.name;
+    this._type = settings.type;
+    this._shouldSkip = settings.shouldSkip;
+    this._isValid = settings.isValid || true;
+    this._isDirty = settings.isDirty || false;
+    this._validate = settings.validate;
+    this._component = this.withProps(settings.component);
+    this._data = settings.data || {};
+  }
+
+  public get name() {
+    return this._name;
+  }
+
+  public get type() {
+    return this._type;
+  }
+
+  public get isValid() {
+    return this._isValid;
+  }
+
+  public set isValid(val: boolean) {
+    if (!val) {
+      throw Error('Invalid value from IsValid');
+    }
+    this._isValid = val;
+  }
+
+  public get isDirty() {
+    return this._isDirty;
+  }
+
+  public set isDirty(val: boolean) {
+    this._isDirty = val;
+  }
+
+  public get data() {
+    return this._data;
+  }
+
+  public get component() {
+    return this._component;
+  }
+
+  public get validate() {
+    return this._validate;
+  }
+
+  public get shouldSkip() {
+    return this._shouldSkip;
   }
 
   /**
