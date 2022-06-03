@@ -33,13 +33,13 @@ export class Screen {
   private _type: ScreenTypes;
 
   // Actual screen component used if you wanted to render a component
-  component?: ScreenComponent | undefined;
+  private _component?: ScreenComponent | undefined;
 
   // A function that says if you should skip that screen and go to the next
-  shouldSkip?: (data?: FlowData, state?: State) => boolean;
+  private _shouldSkip?: (data?: FlowData, state?: State) => boolean;
 
   /// A function that will run if you wanted to have validate logic run against the screen
-  validate?: (data: FlowData) => boolean;
+  private _validate?: (data: FlowData) => boolean;
 
   // a property to see if the screen is good or not
   private _isValid: boolean;
@@ -53,11 +53,11 @@ export class Screen {
   constructor(private settings: IScreen) {
     this._name = settings.name;
     this._type = settings.type;
-    this.shouldSkip = settings.shouldSkip;
+    this._shouldSkip = settings.shouldSkip;
     this._isValid = settings.isValid || true;
     this._isDirty = settings.isDirty || false;
-    this.validate = settings.validate;
-    this.component = this.withProps(settings.component);
+    this._validate = settings.validate;
+    this._component = this.withProps(settings.component);
     this._data = settings.data || {};
   }
 
@@ -87,6 +87,18 @@ export class Screen {
 
   public get data() {
     return this._data;
+  }
+
+  public get component() {
+    return this._component;
+  }
+
+  public get validate() {
+    return this._validate;
+  }
+
+  public get shouldSkip() {
+    return this._shouldSkip;
   }
 
   /**
