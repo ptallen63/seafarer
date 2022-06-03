@@ -8,26 +8,13 @@
 ![package version](https://img.shields.io/github/package-json/v/ptallen63/seafarer)
 ![npm package version](https://img.shields.io/npm/v/@ptallen63/seafarer)
 
+[Table of Contents](#table-of-contents)
+
 🚧 **Disclaimer**: This project is in development and is just a proof of concept at this point. I would love any feedback and how you wish it worked and what features to add. That being said, it is not meant for hardened production environments just yet.
 
 One of the main purposes for this project is to make creating simple step flows easier and faster. By using intentional abstractions, the only thing a developer has to worry about is the core logic of the flow itself. You should not have to worry about keeping up with the state of the flow all the time or rewriting advance and previous screen logic. With  **Seafarer** only worry about what your flow is doing. Written with modern React **Seafarer** provides a simple hook to use throughout your application. You can only use the core logic engine of **Seafarer** or add your own screen components.
 
-- [⛵ Seafarer](#-seafarer)
-  - [Installation](#installation)
-    - [NPM](#npm)
-    - [PNPM](#pnpm)
-    - [Yarn](#yarn)
-  - [Usage](#usage)
-    - [`<FlowProvider/>`](#flowprovider)
-    - [Flow Config](#flow-config)
-      - [Flow Settings](#flow-settings)
-      - [Example Config](#example-config)
-    - [Screens](#screens)
-      - [Screen Settings](#screen-settings)
-        - [Screen Input Types](#screen-input-types)
-    - [`UseFlow()`](#useflow)
-  - [Contributing](#contributing)
-  - [Project](#project)
+
 
 ## Installation
 
@@ -228,3 +215,23 @@ Please see our [contributing guide](CONTRIBUTING.md).
 ## Project
 
 [Github Project](https://github.com/users/ptallen63/projects/2/views/1?groupedBy%5BcolumnId%5D=4138946&visibleFields=%5B%22Title%22%2C%22Status%22%2C4139073%2C%22Linked+Pull+Requests%22%5D)
+
+## Table of Contents
+
+- [⛵ Seafarer](#-seafarer)
+  - [Installation](#installation)
+    - [NPM](#npm)
+    - [PNPM](#pnpm)
+    - [Yarn](#yarn)
+  - [Usage](#usage)
+    - [`<FlowProvider/>`](#flowprovider)
+    - [Flow Config](#flow-config)
+      - [Flow Settings](#flow-settings)
+      - [Example Config](#example-config)
+    - [Screens](#screens)
+      - [Screen Settings](#screen-settings)
+        - [Screen Input Types](#screen-input-types)
+    - [`UseFlow()`](#useflow)
+  - [Contributing](#contributing)
+  - [Project](#project)
+  - [Table of Contents](#table-of-contents)
