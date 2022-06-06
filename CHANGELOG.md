@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/ptallen63/seafarer/compare/1.7.2...1.8.0) (2022-06-06)
+
+
+### Features
+
+* addint a meta prop for screens ([#36](https://github.com/ptallen63/seafarer/issues/36)) ([f262ed3](https://github.com/ptallen63/seafarer/commit/f262ed3fe8fc171fac8b56b45ef8bf6599cba8c4))
+
 ## [1.7.2](https://github.com/ptallen63/seafarer/compare/1.7.1...1.7.2) (2022-06-03)
 
 
