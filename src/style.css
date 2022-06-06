@@ -1,0 +1,33 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.App > button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: unset;
+  margin: 3px;
+}
+
+pre {
+  text-align: left;
+  padding: 10px;
+  background-color: #ecf0f1;
+}
+
+.flow {
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.screen {
+  min-height: 200px;
+  padding: 10px 5px 10px;
+  border: 1px solid grey;
+  text-align: left;
+}
+
+.screen > pre {
+}

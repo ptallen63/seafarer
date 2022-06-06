@@ -21,8 +21,14 @@ export interface IScreen {
   isDirty?: boolean;
   shouldSkip?: (data?: FlowData, state?: State) => boolean;
   validate?: (data?: FlowData) => boolean;
-
+  meta?: {
+    [key: string]: unknown;
+  }
 }
+
+export type ScreenMetadata = {
+  [key: string]: any;
+};
 
 
 export class Screen {
@@ -50,6 +56,9 @@ export class Screen {
   // Flow Data
   private _data: FlowData;
 
+  // custom Metadata for screens
+  private _meta: ScreenMetadata;
+
   constructor(private settings: IScreen) {
     this._name = settings.name;
     this._type = settings.type;
@@ -59,6 +68,7 @@ export class Screen {
     this._validate = settings.validate;
     this._component = this.withProps(settings.component);
     this._data = settings.data || {};
+    this._meta = settings.meta || {};
   }
 
   public get name() {
@@ -104,6 +114,10 @@ export class Screen {
     return this._shouldSkip;
   }
 
+  public get meta() {
+    return this._meta;
+  }
+
   /**
    * Takes in a component and add the screen settings as props to it.
    * @param WrappedScreenComp the
@@ -111,8 +125,10 @@ export class Screen {
    */
   private withProps(WrappedScreenComp: ScreenComponent | undefined) {
     if (!WrappedScreenComp) return;
-
-    WrappedScreenComp.defaultProps = this.settings;
+    // Make a quick copy since they done need the component setting
+    const newObj = { ...this.settings };
+    delete newObj.component;
+    WrappedScreenComp.defaultProps = newObj;
 
     return WrappedScreenComp;
   }

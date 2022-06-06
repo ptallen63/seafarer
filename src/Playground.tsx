@@ -11,9 +11,40 @@ const root = ReactDOM.createRoot(
 
 //Test Screen components
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-const Screen1:ScreenComponent = (props) => <div> Screen 1 {props.name} <pre>{JSON.stringify(props, null, 2)}</pre> </div>;
-const Screen2 = () => <div>Screen 2</div>;
-const Screen3 = () => <div>Screen 3</div>;
+const ScreenComp1 :ScreenComponent = (props) => {
+  console.log({ props });
+  return (
+  <div>
+    {props.meta.header}
+    <pre>
+      {JSON.stringify(props, null, 2)}
+    </pre>
+  </div>
+  );
+};
+const ScreenComp2 :ScreenComponent = (props) => {
+  console.log({ props });
+  return (
+  <div>
+    {props.meta.header}
+    <pre>
+      {JSON.stringify(props, null, 2)}
+    </pre>
+  </div>
+  );
+};
+
+const ScreenComp3 :ScreenComponent = (props) => {
+  console.log({ props });
+  return (
+  <div>
+    {props.meta.header}
+    <pre>
+      {JSON.stringify(props, null, 2)}
+    </pre>
+  </div>
+  );
+};
 
 root.render(
   <React.StrictMode>
@@ -32,18 +63,34 @@ root.render(
             console.log('...Validating', data);
             return data?.foo === 'bar';
           },
-          name: 'screen-1', component: Screen1, type: ScreenTypes.INPUT },
+          name: 'screen-1',
+          component: ScreenComp1,
+          type: ScreenTypes.INPUT,
+          meta: {
+            header: 'Screen 1',
+          } },
         {
           name: 'screen-2',
-          component: Screen2, type: ScreenTypes.INPUT,
+          component: ScreenComp2,
+          type: ScreenTypes.INPUT,
           shouldSkip(data) {
             if (data?.foo === 'bar') return true;
             return false;
           },
           isValid: true,
-
+          meta: {
+            header: 'Screen 2',
+          },
         },
-        { name: 'screen-3', component: Screen3, type: ScreenTypes.INPUT, isValid: true },
+        {
+          name: 'screen-3',
+          component: ScreenComp3,
+          type: ScreenTypes.INPUT,
+          isValid: true,
+          meta: {
+            header: 'Screen 3',
+          },
+        },
 
       ],
       onSubmit(data, state) {
