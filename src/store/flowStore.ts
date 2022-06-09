@@ -2,7 +2,7 @@
 import { Action, ActionsParams } from '../../types/Actions';
 import { State, IBaseOptions } from '../../types/State';
 import pkg from '../../package.json';
-import { IScreen, Screen } from '../services/screen';
+import { ScreenSettings, Screen } from '../services/screen';
 
 /**
  * ===================================
@@ -86,7 +86,7 @@ export type ScreenHistoryRecord = {
 
 export interface IFlowConfig {
   startingScreenIndex?: number,
-  screens: IScreen[];
+  screens: ScreenSettings[];
   data?: FlowData;
   settings?: FlowSettings;
   onSubmit?: (data?: FlowData, state?: State) => void

@@ -10,7 +10,7 @@ export enum ScreenTypes {
 
 export type ScreenComponent = React.FC<Screen>;
 
-export interface IScreen {
+export interface ScreenSettings {
   name: string;
   type: ScreenTypes;
   component?: ScreenComponent;
@@ -59,7 +59,7 @@ export class Screen {
   // custom Metadata for screens
   private _meta: ScreenMetadata;
 
-  constructor(private settings: IScreen) {
+  constructor(private settings: ScreenSettings) {
     this._name = settings.name;
     this._type = settings.type;
     this._shouldSkip = settings.shouldSkip;
