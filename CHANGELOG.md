@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/ptallen63/seafarer/compare/1.8.0...1.8.1) (2022-06-09)
+
+
+### Bug Fixes
+
+* update interface name ([#38](https://github.com/ptallen63/seafarer/issues/38)) ([94e55f1](https://github.com/ptallen63/seafarer/commit/94e55f1a69bb67e5f8c8316fc279813efd6a7fda))
+
 # [1.8.0](https://github.com/ptallen63/seafarer/compare/1.7.2...1.8.0) (2022-06-06)
 
 
