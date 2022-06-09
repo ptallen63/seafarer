@@ -26,7 +26,7 @@ jobs:
         with:
           # The CI workflow
           workflow_id: 25647852
-          access_token: ${{ github.token }}
+          access_token: ${{ secrets.gh-token }}
   build:
     name: Build
     runs-on: ubuntu-latest
