@@ -8,8 +8,11 @@ on:
 jobs:
   ci:
     uses: ./.github/workflows/ci.yml
+    secrets:
+      MY_GH_PAT: ${{ secrets.MY_GH_PAT }}
     with:
       environment: 'production'
+
   release:
     uses: ./.github/workflows/create-release.yml
     secrets:
