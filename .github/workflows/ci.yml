@@ -10,12 +10,17 @@ on:
     branches-ignore:
       - main
   workflow_call:
+    secrets:
+      MY_GH_PAT:
+        description: 'GH Token'
+        required: true
     inputs:
       environment:
         description: 'A env passed from the caller workflow'
         default: 'development'
         required: false
         type: string
+
 jobs:
   setup:
     name: Housekeeping
