@@ -18,7 +18,7 @@ on:
         type: string
 jobs:
   setup:
-    name: House Keeping
+    name: Housekeeping
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
