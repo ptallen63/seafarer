@@ -15,10 +15,12 @@ const ScreenComp1 :ScreenComponent = (props) => {
   console.log({ props });
   return (
   <div>
-    {props.meta.header}
-    <pre>
-      {JSON.stringify(props, null, 2)}
-    </pre>
+    <>
+      {props.meta.header}
+      <pre>
+        {JSON.stringify(props, null, 2)}
+      </pre>
+    </>
   </div>
   );
 };
@@ -26,10 +28,12 @@ const ScreenComp2 :ScreenComponent = (props) => {
   console.log({ props });
   return (
   <div>
-    {props.meta.header}
-    <pre>
-      {JSON.stringify(props, null, 2)}
-    </pre>
+    <>
+      {props.meta.header}
+      <pre>
+        {JSON.stringify(props, null, 2)}
+      </pre>
+    </>
   </div>
   );
 };
@@ -38,10 +42,12 @@ const ScreenComp3 :ScreenComponent = (props) => {
   console.log({ props });
   return (
   <div>
-    {props.meta.header}
-    <pre>
-      {JSON.stringify(props, null, 2)}
-    </pre>
+      <>
+        {props.meta.header}
+        <pre>
+          {JSON.stringify(props, null, 2)}
+        </pre>
+      </>
   </div>
   );
 };

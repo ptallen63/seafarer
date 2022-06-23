@@ -6,16 +6,14 @@ import './style.css';
 function App() {
 
   const { flowState, flowActions } = useFlow();
-  console.log(flowState.currentScreenIndex);
   const currentScreen = flowState.screens[flowState.currentScreenIndex];
-  console.log(currentScreen);
-  // const CurrentScreen = currentScreen.component;
+  const CurrentScreen = currentScreen.component as React.ElementType;
   return (
     <div className="App">
       <h1>Seafarer</h1>
 
       <div className="flow">
-        {/* <CurrentScreen /> */}
+        <CurrentScreen />
       </div>
 
       <button onClick={() => flowActions.previousScreen()}>Previous</button>

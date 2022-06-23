@@ -1,3 +1,4 @@
+import React from 'react';
 import { FlowData } from '../store/flowStore';
 import { State } from '../../types/State';
 
@@ -8,7 +9,7 @@ export enum ScreenTypes {
   DISPLAY = 'DISPLAY',
 }
 
-export type ScreenComponent = React.FC<Screen>;
+export type ScreenComponent = React.FC<ScreenComponentProps>;
 
 export interface ScreenSettings {
   name: string;
@@ -26,8 +27,20 @@ export interface ScreenSettings {
   }
 }
 
+export type ScreenComponentProps = {
+  name: string;
+  type: ScreenTypes;
+  shouldSkip: (data?: FlowData, state?: State) => boolean;
+  validate?: (data: FlowData) => boolean;
+  isValid: boolean;
+  data: FlowData;
+  meta: ScreenMetadata;
+  children?: React.ReactNode
+};
+
+
 export type ScreenMetadata = {
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 
