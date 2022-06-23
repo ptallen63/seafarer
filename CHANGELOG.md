@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/ptallen63/seafarer/compare/1.8.1...1.8.2) (2022-06-23)
+
+
+### Bug Fixes
+
+* updating a minor type ([bbb9548](https://github.com/ptallen63/seafarer/commit/bbb9548ad61be5a24de048665438b08f7894fc6b))
+
 ## [1.8.1](https://github.com/ptallen63/seafarer/compare/1.8.0...1.8.1) (2022-06-09)
 
 
