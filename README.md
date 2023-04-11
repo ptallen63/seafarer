@@ -1,4 +1,4 @@
-# ⛵ Seafarer
+# ⛵ Seafarer -Test
 
 ![CI workflow](https://github.com/ptallen63/seafarer/actions/workflows/ci.yml/badge.svg)
 ![Deployment workflow](https://github.com/ptallen63/seafarer/actions/workflows/deployment.yml/badge.svg)
